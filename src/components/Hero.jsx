@@ -1,19 +1,19 @@
 import React from "react";
-import gradientImage from "../img/gradient-icons.png"; // Zorg dat deze afbeelding bestaat
+import leafsImage from "../img/leafs.png";
 
 const Hero = () => {
     return (
         <section
             className="relative bg-center bg-cover min-h-screen flex items-center justify-center"
             style={{
-                backgroundImage: `url(${gradientImage})`,
-                backgroundAttachment: "fixed", // Parallax-effect
+                backgroundImage: `url(${leafsImage})`,
+                backgroundAttachment: "fixed",
             }}
         >
-            {/* Overlay */}
+
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-            {/* Content */}
+
             <div className="relative z-10 text-center text-white px-6">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Welkom bij Mijn Portfolio
