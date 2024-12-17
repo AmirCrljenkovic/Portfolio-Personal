@@ -27,13 +27,13 @@ const Header = () => {
                         <img
                             src={LogoLightMode}
                             alt="Logo Light Mode"
-                            className="h-12 dark:hidden"
+                            className="h-16 dark:hidden"
                         />
 
                         <img
                             src={LogoDarkMode}
                             alt="Logo Dark Mode"
-                            className="h-12 hidden dark:block"
+                            className="h-16 hidden dark:block"
                         />
                     </Link>
                 </div>
