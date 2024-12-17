@@ -1,5 +1,6 @@
 import React from "react";
 import leafsImage from "../img/leafs.png";
+import MountainDivider from "../icons/mountain-divider.svg"; 
 
 const Hero = () => {
     return (
@@ -8,12 +9,13 @@ const Hero = () => {
             style={{
                 backgroundImage: `url(${leafsImage})`,
                 backgroundAttachment: "fixed",
+                backgroundColor: "#F5F5F5", 
             }}
         >
-
+            
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-
+            
             <div className="relative z-10 text-center text-white px-6">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Welkom bij Mijn Portfolio
@@ -27,6 +29,15 @@ const Hero = () => {
                 >
                     Ontdek Meer
                 </button>
+            </div>
+
+            
+            <div className="absolute bottom-0 left-0 w-screen overflow-hidden">
+                <img
+                    src={MountainDivider}
+                    alt="Divider"
+                    className="w-screen transform rotate-180" 
+                />
             </div>
         </section>
     );

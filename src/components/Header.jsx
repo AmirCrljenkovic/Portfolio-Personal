@@ -18,18 +18,19 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-0 left-0 w-full bg-gray-100 dark:bg-gray-900 shadow-md z-50">
+        <header className="fixed top-0 left-0 w-full bg-[#F5F5F5] dark:bg-gray-900 shadow-md z-50">
             <div className="container mx-auto flex items-center justify-between py-4 px-6">
 
                 <div className="flex-shrink-0">
                     <Link to="/">
-
+                        
                         <img
                             src={LogoLightMode}
                             alt="Logo Light Mode"
                             className="h-16 dark:hidden"
                         />
 
+                        
                         <img
                             src={LogoDarkMode}
                             alt="Logo Dark Mode"
@@ -53,18 +54,18 @@ const Header = () => {
                     </Link>
                 </nav>
 
+                {/* Yin-Yang Dark Mode Button */}
                 <div
                     className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
                     onClick={toggleDarkMode}
                 >
-
                     <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
-
                         <img
                             src={YinYangSVG}
                             alt="Yin Yang Icon"
-                            className={`w-14 h-14 transition-transform duration-500 ease-in-out ${isDarkMode ? "rotate-180" : "rotate-0"
-                                }`}
+                            className={`w-14 h-14 transition-transform duration-500 ease-in-out ${
+                                isDarkMode ? "rotate-180" : "rotate-0"
+                            }`}
                         />
                     </div>
                 </div>
@@ -74,32 +75,34 @@ const Header = () => {
                     className="md:hidden flex flex-col items-center justify-center space-y-1"
                 >
                     <span
-                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-transform duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""
-                            }`}
+                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-transform duration-300 ${
+                            isMenuOpen ? "rotate-45 translate-y-2" : ""
+                        }`}
                     ></span>
                     <span
-                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""
-                            }`}
+                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-opacity duration-300 ${
+                            isMenuOpen ? "opacity-0" : ""
+                        }`}
                     ></span>
                     <span
-                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-transform duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                            }`}
+                        className={`block w-6 h-0.5 bg-gray-800 dark:bg-white transition-transform duration-300 ${
+                            isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                        }`}
                     ></span>
                 </button>
             </div>
 
             <div
-                className={`md:hidden fixed top-0 left-0 w-full h-screen bg-gray-100 dark:bg-gray-900 transform transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                className={`md:hidden fixed top-0 left-0 w-full h-screen bg-[#F5F5F5] dark:bg-gray-900 transform transition-transform duration-300 ${
+                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                }`}
             >
-
                 <button
                     onClick={toggleMenu}
                     className="absolute top-4 right-4 text-gray-800 dark:text-gray-200 text-2xl focus:outline-none"
                 >
                     ✖
                 </button>
-
 
                 <div className="flex flex-col items-center justify-center h-full space-y-8">
                     <Link
