@@ -7,22 +7,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkbg: '#222831', 
+        darkbg: '#222831',
       },
       keyframes: {
         scrollTape: {
           '0%': { transform: 'translateX(100%) rotate(6deg)' },
           '100%': { transform: 'translateX(-100%) rotate(6deg)' },
         },
+        blink: {
+          '50%': { opacity: '0' }, // Knipperende animatie
+        },
       },
       animation: {
-        'scroll-tape': 'scrollTape 10s linear infinite', 
+        'scroll-tape': 'scrollTape 10s linear infinite',
+        blink: 'blink 1s step-start infinite', // Blink animatie toegevoegd
       },
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif'], 
+        sans: ['Ubuntu', 'sans-serif'],
       },
     },
   },
-  darkMode: 'class', 
+  darkMode: 'class',
   plugins: [],
 };

@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import leafsImage from "../img/leafs.png";
-import MountainDivider from "../icons/mountain-divider.svg"; 
+import MountainDivider from "../icons/mountain-divider.svg";
+import Logo from "../img/logo-darkmode.png"; 
 
 const Hero = () => {
+    const [text, setText] = useState("");
+    const fullText = "Full Stack Developer";
+    const typingSpeed = 100;
+
+    useEffect(() => {
+        let index = 0;
+        const typingInterval = setInterval(() => {
+            setText(fullText.substring(0, index + 1));
+            index++;
+            if (index === fullText.length) clearInterval(typingInterval);
+        }, typingSpeed);
+
+        return () => clearInterval(typingInterval);
+    }, []);
+
     return (
         <section
-            className="relative bg-center bg-cover min-h-screen flex items-center justify-center"
+            className="relative bg-center bg-cover min-h-screen flex flex-col items-center justify-center"
             style={{
                 backgroundImage: `url(${leafsImage})`,
                 backgroundAttachment: "fixed",
-                backgroundColor: "#F5F5F5", 
+                backgroundColor: "#F5F5F5",
             }}
         >
             
@@ -17,18 +33,39 @@ const Hero = () => {
 
             
             <div className="relative z-10 text-center text-white px-6">
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                    Welkom bij Mijn Portfolio
+                
+                <div className="mb-6">
+                    <img src={Logo} alt="Logo" className="h-32 mx-auto" /> 
+                </div>
+
+                
+                <h1 className="text-lg md:text-xl font-light text-white mb-4">
+                    Hello, I'm Amir. A passionate Software Developer.
                 </h1>
-                <p className="text-lg md:text-xl mb-6">
-                    Ontdek mijn projecten en vaardigheden.
-                </p>
-                <button
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
-                    onClick={() => alert("Ontdek meer!")}
-                >
-                    Ontdek Meer
-                </button>
+
+                
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                    {text}
+                    <span className="inline-block animate-blink">|</span>
+                </h2>
+
+                
+                <div className="flex justify-center space-x-4">
+                    <a
+                        href="/path/to/your-cv.pdf"
+                        download
+                        className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                    >
+                        Download CV
+                    </a>
+
+                    <a
+                        href="#contact"
+                        className="bg-gray-200 hover:bg-gray-300 text-black font-bold py-3 px-6 rounded-lg transition duration-300"
+                    >
+                        Contact Me
+                    </a>
+                </div>
             </div>
 
             
@@ -36,7 +73,7 @@ const Hero = () => {
                 <img
                     src={MountainDivider}
                     alt="Divider"
-                    className="w-screen transform rotate-180" 
+                    className="w-screen transform rotate-180"
                 />
             </div>
         </section>
