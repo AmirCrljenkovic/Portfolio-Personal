@@ -33,7 +33,7 @@ export const HeroParallax = ({
         <div
             id="projects"
             ref={ref}
-            className="relative flex h-[270vh]  flex-col self-auto overflow-hidden pb-10 pt-40 antialiased [perspective:1000px] [transform-style:preserve-3d]"
+            className="relative flex h-[270vh] flex-col self-auto overflow-hidden pb-20 pt-60 antialiased bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 [perspective:1000px] [transform-style:preserve-3d]"
         >
             <Header />
             <motion.div
@@ -50,7 +50,7 @@ export const HeroParallax = ({
                         <ProductCard product={product} translate={translateX} key={product.title} />
                     ))}
                 </motion.div>
-                <motion.div className="mb-20 flex  flex-row space-x-20 ">
+                <motion.div className="mb-20 flex flex-row space-x-20">
                     {secondRow.map((product) => (
                         <ProductCard product={product} translate={translateXReverse} key={product.title} />
                     ))}
@@ -67,8 +67,10 @@ export const HeroParallax = ({
 
 export const Header = () => {
     return (
-        <div className="relative left-0 top-0 mx-auto w-full max-w-5xl px-4  py-20 md:py-40">
-            <h1 className="text-2xl font-bold dark:text-white md:text-7xl">Projects</h1>
+        <div className="relative left-0 top-0 mx-auto w-full max-w-5xl px-4 py-20 md:py-40">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-7xl">
+                Projects
+            </h1>
         </div>
     );
 };
@@ -107,8 +109,10 @@ export const ProductCard = ({
                     alt={product.title}
                 />
             </a>
-            <div className="pointer-events-none absolute inset-0 size-full bg-black opacity-0 group-hover/product:opacity-80"></div>
-            <h2 className="absolute bottom-4 left-4 text-white opacity-0 group-hover/product:opacity-100">{product.title}</h2>
+            <div className="pointer-events-none absolute inset-0 size-full bg-black dark:bg-gray-800 opacity-0 group-hover/product:opacity-80"></div>
+            <h2 className="absolute bottom-4 left-4 text-white dark:text-gray-100 opacity-0 group-hover/product:opacity-100">
+                {product.title}
+            </h2>
         </motion.div>
     );
 };
