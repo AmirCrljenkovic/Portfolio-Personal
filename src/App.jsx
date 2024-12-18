@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About'; // Importeer de About Me sectie
 import Skills from './components/Skills'; // Importeer de Skills Sectie
+import Projects from './components/Projects';
 import ContactPage from './pages/ContactPage';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
                             <Hero />
                             <About /> {/* About Me Sectie */}
                             <Skills /> {/* Skills Sectie toegevoegd */}
+                            <Projects />
                         </>
                     } 
                 />
