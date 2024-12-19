@@ -15,12 +15,12 @@ module.exports = {
           '100%': { transform: 'translateX(-100%) rotate(6deg)' },
         },
         blink: {
-          '50%': { opacity: '0' }, // Knipperende animatie
+          '50%': { opacity: '0' },
         },
       },
       animation: {
         'scroll-tape': 'scrollTape 10s linear infinite',
-        blink: 'blink 1s step-start infinite', // Blink animatie toegevoegd
+        blink: 'blink 1s step-start infinite',
       },
       fontFamily: {
         sans: ['Ubuntu', 'sans-serif'],

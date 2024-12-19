@@ -25,7 +25,7 @@ const ContactPage = () => {
             <p className="mb-8 text-center max-w-xl">
                 Heb je een vraag of wil je samenwerken? Vul het formulier in en ik neem zo snel mogelijk contact met je op!
             </p>
-            <form 
+            <form
                 className="w-full max-w-lg bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
                 onSubmit={handleSubmit}
             >

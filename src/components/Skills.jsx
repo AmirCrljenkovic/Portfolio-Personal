@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MountainDivider from "../icons/pyramid-divider.svg"; 
+import MountainDivider from "../icons/pyramid-divider.svg";
 
 const SkillCard = ({ name, icon }) => {
     const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -27,13 +27,11 @@ const SkillCard = ({ name, icon }) => {
             onMouseMove={handleMouseMove}
             onMouseLeave={resetTilt}
         >
-            
             <div className="absolute inset-0 bg-[#F5F5F5] dark:bg-[#222831] transition-colors duration-300"></div>
 
             {/* Hover-effect */}
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-300"></div>
 
-            
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800 dark:text-gray-200">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
                     {icon}
@@ -58,8 +56,7 @@ const SkillsSection = () => {
     ];
 
     return (
-        <section className="relative bg-gray-50 dark:bg-gray-900">
-            
+        <section id="skills" className="relative bg-gray-50 dark:bg-gray-900">
             <div className="-mt-px">
                 <img
                     src={MountainDivider}
@@ -68,7 +65,6 @@ const SkillsSection = () => {
                 />
             </div>
 
-            
             <div className="relative container mx-auto px-6 pt-16">
                 <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
                     Mijn Vaardigheden
