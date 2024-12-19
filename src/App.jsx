@@ -5,8 +5,10 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import ButtonProjects from './components/ButtonProjects';
 import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
+import Projectspage from './pages/Projectspage'; // Zorg ervoor dat je Projectspage importeert
 
 const App = () => {
     return (
@@ -21,11 +23,13 @@ const App = () => {
                             <About />
                             <Skills />
                             <Projects />
+                            <ButtonProjects />
                             <Footer />
                         </>
                     } 
                 />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/projects" element={<Projectspage />} /> {/* Voeg de projectpagina route toe */}
             </Routes>
         </Router>
     );
