@@ -7,8 +7,8 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import ButtonProjects from "./components/ButtonProjects";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ContactPage from "./pages/ContactPage";
 import Projectspage from "./pages/Projectspage";
 
 const App = () => {
@@ -26,12 +26,12 @@ const App = () => {
                             <Skills id="skills" />
                             <Projects id="projects" />
                             <ButtonProjects />
+                            <Contact />
                             <Footer />
                         </>
                     }
                 />
                 <Route path="/projects" element={<Projectspage />} />
-                <Route path="/contact" element={<ContactPage />} />
             </Routes>
         </Router>
     );
