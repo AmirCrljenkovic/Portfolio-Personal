@@ -29,7 +29,6 @@ const Hero = () => {
                 backgroundColor: "#F5F5F5",
             }}
         >
-
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
             {/* Content */}
@@ -48,7 +47,7 @@ const Hero = () => {
                     <a
                         href="/path/to/your-cv.pdf"
                         download
-                        className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                        className="bg-[#3C493F] hover:bg-[#2B362E] text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                     >
                         Download CV
                     </a>
@@ -60,7 +59,6 @@ const Hero = () => {
                     </a>
                 </div>
             </div>
-
 
             <div className="absolute bottom-0 left-0 w-screen overflow-hidden">
                 <img

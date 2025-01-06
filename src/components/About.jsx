@@ -13,7 +13,6 @@ const AboutMe = () => {
                     />
                 </div>
 
-
                 <div className="w-full md:w-1/2 text-center md:text-left">
                     <h2 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
                         Over Mij
@@ -26,7 +25,7 @@ const AboutMe = () => {
                     </p>
                     <button
                         onClick={() => alert("Ga naar Contact!")}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                        className="bg-[#3C493F] dark:bg-[#7E8D85] text-white font-bold py-3 px-6 rounded-lg transition duration-300 hover:opacity-90"
                     >
                         Neem Contact Op
                     </button>
