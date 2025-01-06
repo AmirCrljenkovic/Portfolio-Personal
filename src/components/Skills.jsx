@@ -56,7 +56,10 @@ const SkillsSection = () => {
     ];
 
     return (
-        <section id="skills" className="relative bg-gray-50 dark:bg-gray-900">
+        <section
+            id="skills"
+            className="relative bg-gray-50 dark:bg-gray-900 pb-16" 
+        >
             <div className="-mt-px">
                 <img
                     src={MountainDivider}
