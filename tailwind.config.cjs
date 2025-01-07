@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         'icon-light-color': '#3C493F',  // Kleur in light mode
         'icon-dark-color': '#7E8D85',   // Kleur in dark mode
-        darkbg: '#222831', 
+        darkbg: '#222831',
       },
       keyframes: {
         scrollTape: {
@@ -39,17 +39,17 @@ module.exports = {
         },
       },
       animation: {
-        'scroll-tape': 'scrollTape 10s linear infinite', 
-        blink: 'blink 1s step-start infinite', 
-        'realistic-shake': 'realisticShake 0.8s ease-in-out', 
-        'bounce-once': 'bounceOnce 0.6s ease-in-out', 
-        'pulse-location': 'pulseLocation 1.2s ease-in-out infinite', 
+        'scroll-tape': 'scrollTape 10s linear infinite',
+        blink: 'blink 1s step-start infinite',
+        'realistic-shake': 'realisticShake 0.8s ease-in-out',
+        'bounce-once': 'bounceOnce 0.6s ease-in-out',
+        'pulse-location': 'pulseLocation 1.2s ease-in-out infinite',
       },
       fontFamily: {
         sans: ['Ubuntu', 'sans-serif'],
       },
     },
   },
-  darkMode: 'class', 
+  darkMode: 'class',
   plugins: [],
 };

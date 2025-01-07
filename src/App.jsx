@@ -14,6 +14,7 @@ import Projectspage from "./pages/Projectspage";
 const App = () => {
     return (
         <Router>
+
             <Header />
             <ScrollToSection />
             <Routes>
