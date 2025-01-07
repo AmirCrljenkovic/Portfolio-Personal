@@ -83,7 +83,7 @@ const Contact = () => {
 
                     <div className="w-full lg:w-1/2">
                         <form
-                            action="https://formspree.io/f/YOUR_FORM_ID"
+                            action="https://formspree.io/f/mkggperr"
                             method="POST"
                             className="bg-gray-100 dark:bg-gray-800 p-8 rounded-md shadow-md space-y-6"
                         >
