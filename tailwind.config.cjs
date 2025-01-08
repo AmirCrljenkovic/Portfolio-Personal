@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         'icon-light-color': '#3C493F',  // Kleur in light mode
         'icon-dark-color': '#7E8D85',   // Kleur in dark mode
-        darkbg: '#222831',
+        darkbg: '#202120',
       },
       keyframes: {
         scrollTape: {
