@@ -39,7 +39,7 @@ const AboutMe = () => {
             onClick={handleScrollToContact} 
             className="
               bg-[#3C493F] text-white   /* Light mode */
-              dark:bg-[#B3BFB8]        /* Dark mode button background */
+              dark:bg-[#7E8D85]        /* Dark mode button background */
               dark:text-white         /* Dark mode button text */
               font-bold py-3 px-6 rounded-lg transition duration-300 hover:opacity-90
             "
