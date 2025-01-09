@@ -32,6 +32,7 @@ const Header = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
     document.documentElement.classList.toggle("dark", newDarkMode);
+
     const event = new CustomEvent("dark-mode-changed", {
       detail: { dark: newDarkMode },
     });
@@ -42,13 +43,28 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Smooth scroll
+  
   const handleScrollToSection = (section) => {
-    setActiveSection(section); // Mark this section as 'active'
+    setActiveSection(section);
     if (location.pathname !== "/") {
       window.location.href = `/#${section}`;
     } else {
       scroller.scrollTo(section, {
+        smooth: true,
+        duration: 500,
+        offset: -80,
+      });
+    }
+  };
+
+  
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setActiveSection("hero");
+    if (location.pathname !== "/") {
+      window.location.href = "/#hero";
+    } else {
+      scroller.scrollTo("hero", {
         smooth: true,
         duration: 500,
         offset: -80,
@@ -65,24 +81,21 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-[#F5F5F5] dark:bg-[#202120] shadow-md z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <div className="flex-shrink-0">
-          <RouterLink to="/">
-            {/* Light Logo */}
-            <img
-              src={LogoLightMode}
-              alt="Logo Light Mode"
-              className="h-16 dark:hidden"
-            />
-            {/* Dark Logo */}
-            <img
-              src={LogoDarkMode}
-              alt="Logo Dark Mode"
-              className="h-16 hidden dark:block"
-            />
-          </RouterLink>
-        </div>
+        
+        <a href="/" onClick={handleLogoClick} className="flex-shrink-0">
+          <img
+            src={LogoLightMode}
+            alt="Logo Light Mode"
+            className="h-16 dark:hidden"
+          />
+          <img
+            src={LogoDarkMode}
+            alt="Logo Dark Mode"
+            className="h-16 hidden dark:block"
+          />
+        </a>
 
-        {/* Dark Mode toggle (Mobile) */}
+        
         <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
           <div
             className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
@@ -100,7 +113,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop Menu */}
+       
         <nav className="hidden md:flex flex-1 justify-center space-x-8">
           {[
             { label: "Home", section: "hero" },
@@ -131,7 +144,7 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Right side (Dark Mode & Language) */}
+       
         <div className="hidden md:flex items-center space-x-4">
           <div
             className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
@@ -192,7 +205,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Icon */}
+        
         <button
           onClick={toggleMenu}
           className="md:hidden flex flex-col items-center justify-center space-y-1"
@@ -215,7 +228,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      
       <div
         className={`
           md:hidden fixed top-0 left-0 w-full h-screen 
