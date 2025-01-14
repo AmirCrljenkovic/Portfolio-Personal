@@ -1,0 +1,49 @@
+@use "../../colors/colors.scss";
+
+.section2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30rem;
+  position: relative; /* Add position: relative to make room for absolutely positioned .section2_line */
+}
+
+.more_info {
+  padding-bottom: 15rem;
+}
+
+.more_info_h2 {
+  font-size: 2rem;
+  font-family: bold;
+  display: block;
+}
+
+.section2_button {
+  padding-top: 3rem;
+  display: inline;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: colors.$black;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.section2_button:hover{
+  color: colors.$red;
+}
+
+.button:hover {
+  color: colors.$red;
+  text-decoration: none;
+}
+
+.section2_line {
+  position: absolute; /* Position the line absolutely relative to .section2 */
+  bottom: 0; /* Align the line at the bottom of .section2 */
+  border-top: 0.3rem solid colors.$red;
+  width: 60%;
+  padding-bottom: 9rem;
+  border-radius: 0.2rem;
+}

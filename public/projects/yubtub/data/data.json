@@ -1,0 +1,113 @@
+{
+    "videos": [
+        {
+            "id": 1,
+            "title": "AUDI RS6 C8 | NIGHT DRIVE POV by AutoTopNL",
+            "views": "130k+",
+            "video": "video-1.mp4",
+            "cover": "cover1.webp",
+            "comments": [
+                "What a beast!",
+                "Gotta Love Audi!"
+            ],
+            "similar": [
+                "video-2.mp4",
+                "video-3.mp4",
+                "video-4.mp4",
+                "video-5.mp4",
+                "video-6.mp4"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "AMG CLA 45 S 4MATIC+ 421 HP SHOOTING BRAKE AMBIENT LIGHTS & NIGHT DRIVE",
+            "views": "231k+",
+            "video": "video-2.mp4",
+            "comments": [
+                "That sound😫",
+                "Amazing interior!",
+                "Gotta love the AMG!"
+            ],
+            "similar": [
+                "video-1.mp4",
+                "video-3.mp4",
+                "video-4.mp4",
+                "video-5.mp4",
+                "video-6.mp4"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "2021 BMW M8 | REVIEW M8 Competition POV TEST DRIVE at NIGHT",
+            "views": "220k+",
+            "video": "video-3.mp4",
+            "comments": [
+                "Love it!",
+                "Bimmer boys for life!",
+                "Looks amazing!",
+                "Every Mercedes worst nightmare."
+            ],
+            "similar": [
+                "video-1.mp4",
+                "video-2.mp4",
+                "video-4.mp4",
+                "video-5.mp4",
+                "video-6.mp4"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Bentley Continental GT POV NIGHT DRIVE Ambient LIGHTING by AutoTopNL",
+            "views": "180k+",
+            "video": "video-4.mp4",
+            "comments": [
+                "Insane performance!",
+                "The sound is incredible!",
+                "I need this car!"
+            ],
+            "similar": [
+                "video-1.mp4",
+                "video-2.mp4",
+                "video-3.mp4",
+                "video-5.mp4",
+                "video-6.mp4"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "LAMBORGHINI Huracan Performante NIGHT DRIVE POV by AutoTopNL",
+            "views": "300k+",
+            "video": "video-5.mp4",
+            "comments": [
+                "Absolute beast!",
+                "Lamborghini never disappoints!",
+                "Dream car material!"
+            ],
+            "similar": [
+                "video-1.mp4",
+                "video-2.mp4",
+                "video-3.mp4",
+                "video-4.mp4",
+                "video-6.mp4"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "FERRARI F12 *V12 HEAVEN* NIGHT DRIVE by AutoTopNL",
+            "views": "250k+",
+            "video": "video-6.mp4",
+            "comments": [
+                "Ferrari is the best!",
+                "Amazing sound!",
+                "Pure adrenaline!"
+            ],
+            "similar": [
+                "video-1.mp4",
+                "video-2.mp4",
+                "video-3.mp4",
+                "video-4.mp4",
+                "video-5.mp4"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+@use "../colors/colors.scss";
+
+.section1_organisatie{
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; 
+    //padding-bottom: 30rem;
+}
+
+.section1_img_wrapper{
+    width: 100%;
+    height: 50rem;
+    width: 50%;
+    position: relative;
+}
+
+.section1_img{
+    width: 100%;
+    height: 100%;
+}
+
+.organisatie_description{
+    font-size: 1rem; 
+    color: colors.$black;
+    padding: 5rem;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: bold; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section2_organisatie{
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; 
+    //padding-bottom: 30rem;
+}
+
+.section2_img_wrapper{
+    width: 100%;
+    height: 50rem;
+    width: 50%;
+    position: relative;
+}
+.section2_img{
+    width: 100%;
+    height: 100%;
+}
+
+.section3_organisatie{
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; 
+}
+
+.description_organisatie{
+    width: 50%;
+    height: 100%;
+    background: colors.$smoke;
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 2rem;
+}

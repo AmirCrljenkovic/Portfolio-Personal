@@ -29,6 +29,7 @@ const Projectspage = () => {
           idea: item.fields.idea,
           functions: item.fields.functions,
           website: item.fields.website,
+          github: item.fields.github, 
           images: item.fields.images
             ? item.fields.images.map((img) => img.fields.file.url)
             : [],
@@ -133,16 +134,28 @@ const Projectspage = () => {
                   {selectedProject.functions}
                 </p>
               )}
-              {selectedProject.website && (
-                <a
-                  href={selectedProject.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
-                >
-                  Bezoek Website
-                </a>
-              )}
+              <div className="flex space-x-4 mt-4">
+                {selectedProject.website && (
+                  <a
+                    href={selectedProject.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
+                  >
+                    Bezoek Website
+                  </a>
+                )}
+                {selectedProject.github && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
+                  >
+                    Bekijk op GitHub
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

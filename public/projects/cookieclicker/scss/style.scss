@@ -1,0 +1,9 @@
+@use "./abstracts/reset";
+@use "./base.scss";
+@use "./compnents/header/header.scss";
+@use "./compnents/upgrades/upgrades.scss";
+@use "./compnents/save/save.scss";
+@use "./compnents/avatar/avatar.scss";
+@use "./compnents/score/score.scss";
+@use "./compnents/cookie/cookie.scss";
+@use "./abstracts/mediaqueries";
