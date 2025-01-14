@@ -1,0 +1,81 @@
+
+
+@media screen and (max-width: 75rem) {
+
+    body{
+        font-size:1.6rem;
+    }
+
+    .header{
+        min-height:140rem;
+
+    }
+
+    .over{
+        height: 120rem;
+    }
+
+    .over__header{
+        height: 20%;
+    }
+
+    .over__columns{        
+        flex-direction: column;
+        height: 80%;
+        
+    }
+
+    .over__column{
+        height: 50%;
+    }
+
+    .over__p{
+        width: 100%;
+        height: 100%;
+    }
+    .over__figure{
+        position: relative;
+        height: 40%;
+        width: 100%;
+    }
+
+    .kenmerken{
+        min-height: 120rem;
+        padding: 0;
+    }
+
+    .kenmerken__listitem{
+        width: 100%;
+    }
+    
+    .galerij{
+        height: auto;
+
+    }
+
+    .galerij__list{
+        flex-wrap: wrap;
+    }
+
+    .galerij__listitem{
+        width: 100%;
+        height: 20rem;    
+    }
+
+    .galerij__listitem:hover >.galerij__listsection{
+        transform: scaleX(0);
+        
+    }
+        
+    .galerij__listitem:hover > .galerij__listsection >.btn{
+        opacity: 0;
+    }
+
+}
+
+@media screen and (max-width:50rem) {
+    .nav__list{
+        flex-direction: column;
+    }
+    
+}

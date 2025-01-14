@@ -1,0 +1,44 @@
+@use 'colors';
+@use 'fonts';
+@use 'components';
+
+.footer{
+    height: 20vh;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    border-bottom: colors.$border-small;
+    width: 100%;
+}
+
+.footer__list{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.footer__listitem{
+    list-style: none;
+    color: white;
+    width: calc(50% - 8rem);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer__icon{
+    font-size: 180%;
+    border: colors.$smallest-border;
+    padding: 2rem;
+    border-radius: 50%;
+    color: grey;
+}
+
+.footer__h3{
+    color: grey;
+    padding: 2rem;
+}

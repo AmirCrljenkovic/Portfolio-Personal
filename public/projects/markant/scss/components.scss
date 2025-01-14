@@ -1,0 +1,29 @@
+@use 'colors';
+@use 'fonts';
+
+%btn{
+    width: 11rem;
+    padding: 1rem;
+    font-size: 80%;
+    background: colors.$btncolor;
+    color: colors.$font-color;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+%btn:hover{
+    background: darken(colors.$btncolor, 10%);
+    transition: 0.2s;
+}
+
+%h2{
+    font-family: fonts.$cursive;
+    font-size: 380%;
+    color: colors.$font-color;
+}
+
+%p{
+    color: colors.$font-color;
+}

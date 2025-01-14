@@ -1,0 +1,56 @@
+@use 'colors';
+@use 'fonts';
+@use 'components';agenda{
+    padding: 4rem;
+    border-bottom: colors.$border-small;
+}
+
+.agenda__header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    height: 20%;
+}
+
+.agenda__h2{
+    @extend %h2;
+    color: #87A2FB;
+}
+.agenda__h3{
+    color: #87A2FB;
+    padding-bottom: 2rem;
+}
+.agenda__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.agenda__listitem{
+    list-style: none;
+    color: white;
+    width: calc(50% - 8rem);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.agenda__p{
+    width: 30ch;
+    text-align: center;
+    color: grey;
+    font-size: 2rem;
+}
+
+.agenda__img{
+    max-width: 40rem;
+    max-height: 40rem;
+    padding: 3rem;
+}

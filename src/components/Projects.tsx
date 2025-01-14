@@ -1,54 +1,63 @@
 import React from 'react';
 import { HeroParallax } from "../components/ui/HeroParallax";
 import gradientIcons from '../img/gradient-icons.png';
+import thumbnail1 from '../img/covers/petax1.png';
+import thumbnail2 from '../img/covers/technowhite1.png';
+import thumbnail3 from '../img/covers/ajax1.png';
+import thumbnail4 from '../img/covers/yt1.png';
+import thumbnail5 from '../img/covers/zakelijk1.png';
+import thumbnail6 from '../img/covers/bank1.png';
+import thumbnail7 from '../img/covers/telcel1.png';
+import thumbnail8 from '../img/covers/amsterdam1.png';
+import thumbnail9 from '../img/covers/markant1.png';
 
 
 
 const products = [
   {
-    title: 'Mern Memories',
+    title: 'Petaxadvies',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail1
   },
   {
-    title: 'Next Event',
+    title: 'Technoberg Portfolio',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail2
   },
   {
-    title: 'Devspace',
+    title: 'Ajaxzaterdag',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail3
   },
   {
-    title: 'Google Clone',
+    title: 'Youtube Clone',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail4
   },
   {
-    title: 'Portfolio V1',
+    title: 'Zakelijk-IPTV',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail5
   },
   {
-    title: 'Dresscode',
+    title: 'Bank App',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail6
   },
   {
-    title: 'Portfolio V2',
+    title: 'Telcel',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail7
   },
   {
-    title: 'Music App',
+    title: 'Gemeente Amsterdam',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail8
   },
   {
-    title: 'Artemis',
+    title: 'Markant Mantelzorg',
     link: 'https://github.com/AmirCrljenkovic/Portfolio-Personal',
-    thumbnail: gradientIcons
+    thumbnail: thumbnail9
   }
 ];
 

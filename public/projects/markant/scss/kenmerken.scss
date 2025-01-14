@@ -1,0 +1,58 @@
+@use 'colors';
+@use 'fonts';
+@use 'components';
+
+.kenmerken{
+    padding: 4rem;
+    border-bottom: colors.$border-small;
+}
+
+.kenmerken__header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    height: 20%;
+}
+
+.kenmerken__h2{
+    @extend %h2;
+    color: #87A2FB;
+}
+.kenmerken__h3{
+    color: #87A2FB;
+}
+.kenmerken__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.kenmerken__listitem{
+    list-style: none;
+    color: white;
+    width: calc(50% - 8rem);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kenmerken__p{
+    width: 30ch;
+    text-align: center;
+    color: grey;
+}
+
+.kenmerken__icon{
+    font-size: 180%;
+    border: colors.$smallest-border;
+    padding: 2rem;
+    border-radius: 50%;
+    color: grey;
+}

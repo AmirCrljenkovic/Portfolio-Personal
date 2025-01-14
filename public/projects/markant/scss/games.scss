@@ -1,0 +1,60 @@
+.games {
+    width: 100%;
+    padding: 0 2.4rem;
+
+    &__h2 {
+        font-size: 115%;
+        padding-bottom: 2.4rem;
+    }
+
+    &__holder {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    &__description {
+        min-width: 25rem;
+        cursor: pointer;
+    }
+
+    &__img {
+        width: 100%;
+        max-height: 12.9rem;
+        min-height: 12.8rem;
+    }
+
+    &__h3 {
+        font-size: 100%;
+        font-weight: 500;
+    }
+
+    &__studio {
+        font-weight: 300;
+    }
+
+    &__review {
+        display: flex;
+        gap: 0.8rem;
+
+        &__score {
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        &__stars {
+            color: goldenrod;
+            font-weight: 300;
+        }
+
+        &__votes {
+            font-weight: 300;
+            font-size: 2rem;
+        }
+    }
+    &__label {
+        background: #a0905f;
+        padding: 0rem 0.5rem;
+    }
+}

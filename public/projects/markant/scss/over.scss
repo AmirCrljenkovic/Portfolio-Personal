@@ -1,0 +1,62 @@
+@use 'colors';
+@use 'fonts';
+@use 'components';
+
+.over{
+    padding: 4rem;
+    border-bottom: colors.$border-small;
+}
+
+.over__header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.over__h2{
+    @extend %h2;
+    color: #87A2FB;
+}
+
+.over__columns{
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.over__column{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.over__p{
+    width: 55ch;
+    @extend %p;
+    color: grey;
+}
+
+.over__figure{
+    position: relative;
+    height: 70rem;
+    width: 70rem;
+}
+
+.over__figure::after{
+    content: '';
+    background: colors.$gradient;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.over__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+

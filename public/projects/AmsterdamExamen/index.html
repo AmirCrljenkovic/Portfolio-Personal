@@ -8,40 +8,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a8c080a66a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/style.css">
   <title>Amsterdam BMV</title>
-  <script src="/js/main.js" defer></script>
-  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <header>
+  <header id="navbar">
     <a href="index.html">
-      <img src="/img/logo.png" alt="Logo" class="logo text-hover">
+      <img src="./img/logo.png" alt="Logo" class="logo text-hover">
     </a>
 
-    <nav>
-      <a href="#mensen" class="nav-item text-hover">Mensen</a>
-      <a href="#expertise" class="nav-item text-hover">Expertise</a>
-      <a href="#projecten" class="nav-item text-hover">Opdrachten en projecten</a>
-      <a href="#publicaties" class="nav-item text-hover">Publicaties</a>
-    </nav>
-    <div>
-      <button class="search-button text-hover"><i class="fa-solid fa-magnifying-glass"></i></button>
-      <button onclick="window.open('contact.html', '_blank') " class="contact-button text-hover">Contact</button>
+    <div id="menu">
+      <nav>
+        <a href="#mensen" class="nav-item text-hover">Mensen</a>
+        <a href="#expertise" class="nav-item text-hover">Expertise</a>
+        <a href="#projecten" class="nav-item text-hover">Opdrachten en projecten</a>
+        <a href="#publicaties" class="nav-item text-hover">Publicaties</a>
+      </nav>
     </div>
-
+    <form id="nav_form">
+      <input type="text" placeholder="Zoeken...">
+      <button type="submit" class="search-button text-hover">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
   </header>
+
   <div class="main_description">
     <h1 class="main_h1">Bouwmanagement en Maatschappelijk Vastgoed</h1>
   </div>
+
   <main class="main">
-
     <div class="main_wrapper">
-
       <section class="description_main">
-
         <h1 class="description_titel">Bijdragen aan een toekomstbestendige stad</h1>
-
         <article class="description_text">
           <h2 class="description_header">Een sociaal-duurzaam Amsterdam</h2>
           <div class="description_text_wrapper">
@@ -52,121 +52,80 @@
               en bevordert. We bouwen niet alleen aan woningen, maar zetten ons ook in voor maatschappelijke
               voorzieningen, zowel voor de huidige bewoners als voor toekomstige generaties.</p>
           </div>
-
         </article>
       </section>
 
       <div class="spacer"></div>
 
       <section class="slider">
-
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/renovatie-amsterdam-museum/">
             <h4 class="slider_number">1 / 3</h4>
-            <img class="slider_img" src="img/centraal.webp" alt="">
-
+            <img class="slider_img" src="./img/centraal.webp" alt="">
             <h4 class="slider_text">Centraal station</h4>
           </a>
-
         </div>
 
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/kwartiermaker-nationaal-slavernijmuseum/">
             <h4 class="slider_number">2 / 3</h4>
-            <img class="slider_img" src="img/palijs.webp" alt="">
+            <img class="slider_img" src="./img/palijs.webp" alt="">
             <h4 class="slider_text">Paleis Amsterdam</h4>
           </a>
-
         </div>
 
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/kwartiermaker-nationaal-slavernijmuseum/">
             <h4 class="slider_number">3 / 3</h4>
-            <img class="slider_img" src="img/museum.webp" alt="">
+            <img class="slider_img" src="./img/museum.webp" alt="">
             <h4 class="slider_text">Scheepsvaartmuseum Amsterdam</h4>
           </a>
-
         </div>
       </section>
     </div>
-
-
   </main>
+
   <div class="section2">
     <div class="more_info">
       <h2 class="more_info_h2">Organisatie</h2>
-      <button onclick="window.open('organisatie.html', '_blank') " class="section2_button"> > Meer</button>
+      <button onclick="window.open('organisatie.html', '_blank')" class="section2_button">Meer</button>
     </div>
     <div class="more_info">
       <h2 class="more_info_h2">Projecten</h2>
-      <button onclick="window.open('projecten.html', '_blank') " class="section2_button"> > Meer</button>
+      <button onclick="window.open('projecten.html', '_blank')" class="section2_button">Meer</button>
     </div>
     <div class="more_info">
       <h2 class="more_info_h2">Werken bij</h2>
-      <button onclick="window.open('werken.html', '_blank') " class="section2_button"> > Meer</button>
+      <button onclick="window.open('werken.html', '_blank')" class="section2_button">Meer</button>
     </div>
     <div class="section2_line"></div>
   </div>
-  </header>
 
-</body>
-
-<footer class="footer">
-  <div class="footer_wrapper">
-    <a href="https://www.amsterdam.nl/pmb/" class="logo_link">
-      <div class="logo">
-        <img class="logo_img" src="img/logo-wit.png" alt="Logo van Gemeente Amsterdam">
-        <div class="logo_wrapper">
-
-        </div>
-
-      </div>
-    </a>
-
-
-
-
-    <div class="footer_bottom">
-
-      <article class="footer_section">
-        <h3 class="footer_titel">Mail</h3>
-        <p class="footer_text">PMB is bereikbaar op werkdagen tussen 8.30 - 17.30 uur.</p>
-        <a class="footer_link" href="contact.html">Contact</a>
-      </article>
-
-      <article class="footer_section">
-        <h3 class="footer_titel">Volg het ProjectManagement Bureau</h3>
-        <div class="footer_logos">
+  <footer class="footer">
+    <div class="footer_wrapper">
+      <a href="https://www.amsterdam.nl/pmb/" class="logo_link">
+        <img class="logo_img" src="./img/logo-wit.png" alt="Logo van Gemeente Amsterdam">
+      </a>
+      <div class="footer_bottom">
+        <article class="footer_section">
+          <h3 class="footer_titel">Mail</h3>
+          <p class="footer_text">PMB is bereikbaar op werkdagen tussen 8.30 - 17.30 uur.</p>
+          <a class="footer_link" href="contact.html">Contact</a>
+        </article>
+        <article class="footer_section">
+          <h3 class="footer_titel">Volg ons</h3>
           <a class="footer_logo" href="https://twitter.com/PMB020">
-            <i class="fa-brands fa-twitter "></i>
+            <i class="fa-brands fa-twitter"></i>
           </a>
-
           <a class="footer_logo" href="http://www.linkedin.com/company/projectmanagement-bureau">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
-        </div>
-      </article>
-
-      <article class="footer_section">
-        <h3 class="footer_titel">Over deze site</h3>
-        <div class="footer_link_wrapper">
-          <a class="footer_link" href="https://www.amsterdam.nl/pmb/algemene-onderdelen/colofon/">Colofon</a>
-          <a class="footer_link"
-            href="https://www.amsterdam.nl/pmb/algemene-onderdelen/proclaimer-copyright/">Proclaimer en Copyright</a>
-          <a class="footer_link" href="https://www.amsterdam.nl/pmb/algemene-onderdelen/sitemap/">Sitemap</a>
-        </div>
-
-      </article>
-
-      <article class="footer_section">
-        <h3 class="footer_titel">Amsterdam.nl</h3>
-        <p class="footer_text">Nieuws en publieksinformatie van de gemeente Amsterdam vindt u op amsterdam.nl</p>
-        <a class="footer_link" href="https://www.amsterdam.nl/">Naar amsterdam.nl</a>
-      </article>
-
-
+        </article>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  <script src="./js/main.js" defer></script>
+</body>
 
 </html>
