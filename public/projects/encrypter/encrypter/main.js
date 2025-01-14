@@ -1,1 +1,4 @@
-const app = new App();  //Hier kan de app gemakkelijk meerdere keren worden uitgevoerd, zolang de naam niet exact hetzelfde is als de vorige keren.
+const app = new App();  //Je kunt deze app herhaaldelijk uitvoeren, zolang de naam elke keer niet exact hetzelfde is als in voorgaande uitvoeringen.
+
+
+

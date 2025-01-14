@@ -1,12 +1,12 @@
-class Encrypter {    //class Encrypter (classen is een blauwdruk)
+class Encrypter{    //class Encrypter (classen is een blauwdruk)
     encrypt(stringToEncrypt) {     //functie
-        stringToEncrypt = stringToEncrypt.toUpperCase(); //dit zorgt er voor dat de encrypter kan werken met hoofdletter gevoeligheid
-        let encryptedString = [];
-        for (let i = 0; i < stringToEncrypt.length; i++) {
+    stringToEncrypt = stringToEncrypt.toUpperCase(); //dit zorgt er voor dat de encrypter kan werken met hoofdletter gevoeligheid
+      let encryptedString = [];
+        for (let i = 0; i < stringToEncrypt.length; i++){
             switch (stringToEncrypt[i]) {
-                case "A":   // De letter A laat D zien, dat word de Cesar 3 methode genoemd
+                case "A":   // De letter A laat D zien    dus je zegt dat zodra A wordt ingetikt dus case, dan Pushed het de encrypted string D uit
                     encryptedString.push("D");
-                    break;
+                    break; 
                 case "B":
                     encryptedString.push("E");
                     break;
@@ -19,76 +19,76 @@ class Encrypter {    //class Encrypter (classen is een blauwdruk)
                 case "E":
                     encryptedString.push("H");
                     break;
-                case "F":
+                    case "F":
                     encryptedString.push("I");
                     break;
-                case "G":
+                    case "G":
                     encryptedString.push("J");
                     break;
-                case "H":
-                    encryptedString.push("K");
+                    case "H":
+                        encryptedString.push("K");
                     break;
-                case "I":
-                    encryptedString.push("L");
+                    case "I":
+                        encryptedString.push("L");
                     break;
-                case "J":
-                    encryptedString.push("M");
+                    case "J":
+                        encryptedString.push("M");
                     break;
-                case "K":
-                    encryptedString.push("N");
+                    case "K":
+                        encryptedString.push("N");
                     break;
-                case "L":
-                    encryptedString.push("O");
+                    case "L":
+                        encryptedString.push("O");
                     break;
-                case "M":
-                    encryptedString.push("P");
+                    case "M":
+                        encryptedString.push("P");
                     break;
-                case "N":
-                    encryptedString.push("Q");
+                    case "N":
+                        encryptedString.push("Q");
                     break;
-                case "O":
-                    encryptedString.push("R");
+                    case "O":
+                        encryptedString.push("R");
                     break;
-                case "P":
-                    encryptedString.push("S");
+                    case "P":
+                        encryptedString.push("S");
                     break;
-                case "Q":
-                    encryptedString.push("T");
+                    case "Q":
+                        encryptedString.push("T");
                     break;
-                case "R":
-                    encryptedString.push("U");
+                    case "R":
+                        encryptedString.push("U");
                     break;
-                case "S":
-                    encryptedString.push("V");
+                    case "S":
+                        encryptedString.push("V");
                     break;
-                case "T":
-                    encryptedString.push("W");
+                    case "T":
+                        encryptedString.push("W");
                     break;
-                case "U":
-                    encryptedString.push("X");
+                    case "U":
+                        encryptedString.push("X");
                     break;
-                case "V":
-                    encryptedString.push("Y");
+                    case "V":
+                        encryptedString.push("Y");
                     break;
-                case "W":
-                    encryptedString.push("Z");
+                    case "W":
+                        encryptedString.push("Z");
                     break;
-                case "X":
-                    encryptedString.push("A");
+                    case "X":
+                        encryptedString.push("A");
                     break;
-                case "Y":
-                    encryptedString.push("B");
+                    case "Y":
+                        encryptedString.push("B");
                     break;
-                case "Z":
-                    encryptedString.push("C");
+                    case "Z":
+                        encryptedString.push("C");
                     break;
                 default:
                     encryptedString.push(stringToEncrypt[i]);
-                    break;
+                    break;       
             }
         }
         encryptedString = encryptedString.join("");
-        return encryptedString; // hier word de functie gereturned.
-
+        return encryptedString;
+   
     }
 }

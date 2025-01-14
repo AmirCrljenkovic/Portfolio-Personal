@@ -24,12 +24,13 @@ const Projectspage = () => {
         const response = await client.getEntries({ content_type: "portfolio" });
         const formattedProjects = response.items.map((item) => ({
           title: item.fields.title,
+          slug: item.fields.slug, // Nieuw veld toegevoegd
           languages: item.fields.languages,
           description: item.fields.description,
           idea: item.fields.idea,
           functions: item.fields.functions,
           website: item.fields.website,
-          github: item.fields.github, 
+          github: item.fields.github,
           images: item.fields.images
             ? item.fields.images.map((img) => img.fields.file.url)
             : [],
@@ -108,34 +109,28 @@ const Projectspage = () => {
               <p className="text-lg font-semibold mb-2 text-[#3C493F] dark:text-[#B3BFB8]">
                 {selectedProject.languages}
               </p>
-              <p className="text-xl mb-6">
-                {selectedProject.description}
-              </p>
-              <h3 className="text-2xl font-bold mb-4">
-                Het Idee:
-              </h3>
-              <p className="text-lg mb-6">
-                {selectedProject.idea}
-              </p>
-              <h3 className="text-2xl font-bold mb-4">
-                Functies:
-              </h3>
+              <p className="text-xl mb-6">{selectedProject.description}</p>
+              <h3 className="text-2xl font-bold mb-4">Het Idee:</h3>
+              <p className="text-lg mb-6">{selectedProject.idea}</p>
+              <h3 className="text-2xl font-bold mb-4">Functies:</h3>
               {Array.isArray(selectedProject.functions) ? (
                 <ul className="mb-6 text-lg space-y-2">
                   {selectedProject.functions.map((func, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="mr-2 text-[#3C493F] dark:text-[#B3BFB8]">•</span>
+                      <span className="mr-2 text-[#3C493F] dark:text-[#B3BFB8]">
+                        •
+                      </span>
                       <span>{func}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="mb-6 text-lg">
-                  {selectedProject.functions}
-                </p>
+                <p className="mb-6 text-lg">{selectedProject.functions}</p>
               )}
+
+              {/* Knoppen */}
               <div className="flex space-x-4 mt-4">
-                {selectedProject.website && (
+                {selectedProject.website ? (
                   <a
                     href={selectedProject.website}
                     target="_blank"
@@ -144,6 +139,17 @@ const Projectspage = () => {
                   >
                     Bezoek Website
                   </a>
+                ) : (
+                  selectedProject.slug && (
+                    <a
+                      href={`/projects/${selectedProject.slug}/index.html`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
+                    >
+                      Bekijk Project
+                    </a>
+                  )
                 )}
                 {selectedProject.github && (
                   <a

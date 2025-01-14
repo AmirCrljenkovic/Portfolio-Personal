@@ -1,93 +1,93 @@
-class Decrypter {
+class Decrypter{
     decrypt(stringToDecrypt) {
         stringToDecrypt = stringToDecrypt.toUpperCase();    //dit zorgt er voor dat de decrypter kan werken met hoofdletter gevoeligheid
-        let decryptedString = [];  //de string is leeg
-        for (let i = 0; i < stringToDecrypt.length; i++) {
-            //Hier wordt een switch statement gebruikt om de stapgroottes te bepalen.
+        let  decryptedString = [];  //de string is opzichzelf normaal gewoon leeg i
+        for (let i = 0; i < stringToDecrypt.length; i++){
+              //switch die de stapgroottes bepaalt
             switch (stringToDecrypt[i]) {
-                case "D":
+                    case "D":
                     decryptedString.push("A");
                     break;
-                case "E":
+                    case "E":
                     decryptedString.push("B");
                     break;
-                case "F":
+                    case "F":
                     decryptedString.push("C");
                     break;
-                case "G":
+                    case "G":
                     decryptedString.push("D");
                     break;
-                case "H":
+                    case "H":
                     decryptedString.push("E");
                     break;
-                case "I":
+                    case "I":
                     decryptedString.push("F");
                     break;
-                case "J":
-                    decryptedString.push("G");
+                    case "J":
+                        decryptedString.push("G");
                     break;
-                case "K":
-                    decryptedString.push("H");
+                    case "K":
+                        decryptedString.push("H");
                     break;
-                case "L":
-                    decryptedString.push("I");
+                    case "L":
+                        decryptedString.push("I");
                     break;
-                case "M":
-                    decryptedString.push("J");
+                    case "M":
+                        decryptedString.push("J");
                     break;
-                case "N":
-                    decryptedString.push("K");
+                    case "N":
+                        decryptedString.push("K");
                     break;
-                case "O":
-                    decryptedString.push("L");
+                    case "O":
+                        decryptedString.push("L");
                     break;
-                case "P":
-                    decryptedString.push("M");
+                    case "P":
+                        decryptedString.push("M");
                     break;
-                case "Q":
-                    decryptedString.push("N");
+                    case "Q":
+                        decryptedString.push("N");
                     break;
-                case "R":
-                    decryptedString.push("O");
+                    case "R":
+                        decryptedString.push("O");
                     break;
-                case "S":
-                    decryptedString.push("P");
+                    case "S":
+                        decryptedString.push("P");
                     break;
-                case "T":
-                    decryptedString.push("Q");
+                    case "T":
+                        decryptedString.push("Q");
                     break;
-                case "U":
-                    decryptedString.push("R");
+                    case "U":
+                        decryptedString.push("R");
                     break;
-                case "V":
-                    decryptedString.push("S");
+                    case "V":
+                        decryptedString.push("S");
                     break;
-                case "W":
-                    decryptedString.push("T");
+                    case "W":
+                        decryptedString.push("T");
                     break;
-                case "X":
-                    decryptedString.push("U");
+                    case "X":
+                        decryptedString.push("U");
                     break;
-                case "Y":
-                    decryptedString.push("V");
+                    case "Y":
+                        decryptedString.push("V");
                     break;
-                case "Z":
-                    decryptedString.push("W");
+                    case "Z":
+                        decryptedString.push("W");
                     break;
-                case "A":
-                    decryptedString.push("X");
+                    case "A":
+                        decryptedString.push("X");
                     break;
-                case "B":
-                    decryptedString.push("Y");
+                    case "B":
+                        decryptedString.push("Y");
                     break;
-                case "C":
-                    decryptedString.push("Z");
+                    case "C":
+                        decryptedString.push("Z");
                     break;
                 default:
                     decryptedString.push(stringToDecrypt[i]);
             }
         }
-        decryptedString = decryptedString.join("");   //array wordt naar terug gestuurd naar de string door join
+       decryptedString = decryptedString.join("");   //array wordt naar terug gestuurd naar de string door join
         return decryptedString; //hier wordt het gereturned
     }
 }
