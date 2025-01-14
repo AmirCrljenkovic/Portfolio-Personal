@@ -1,0 +1,53 @@
+@use "../colors/colors.scss";
+
+header {
+    background-color: colors.$white;
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
+  nav {
+    display: flex;
+    gap: 9rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: colors.$black;
+    align-items: center;
+    font-size: 2rem;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+    color: colors.$red;
+  }
+  
+  .contact-button{
+    padding: 0.5rem 1.5rem;
+    height: 4rem;
+    width: 10rem;
+    text-decoration: none;
+    color: colors.$white;
+    background-color: colors.$red;
+    border: none;
+    border-radius: 0.7rem;
+    cursor: pointer;
+  }
+  
+  .search-button {
+    margin-right: 3rem;
+    color: black;
+    background: colors.$white;
+    border: none;
+    font-size: 1.8rem;
+  }
+
+  .logo {
+    height: 6rem;
+    margin-right: 2rem; 
+  }
+  

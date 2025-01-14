@@ -1,0 +1,16 @@
+@use "../components/colors/colors.scss";
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+strong{
+    font-weight: bold;
+    color: colors.$red;
+    text-decoration: underline;
+}
