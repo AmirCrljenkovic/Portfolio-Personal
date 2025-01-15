@@ -19,16 +19,16 @@ const Footer = () => {
         ease-in-out
       "
     >
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+      
+      <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center justify-between">
         
+        {/* Logo */}
         <div className="flex items-center">
-          
           <img
             src={logoLight}
             alt="Logo Light Mode"
             className="w-24 h-auto dark:hidden"
           />
-          
           <img
             src={logoDark}
             alt="Logo Dark Mode"
@@ -36,12 +36,12 @@ const Footer = () => {
           />
         </div>
 
-       
+        {/* Copyright */}
         <div className="mt-4 md:mt-0 text-center text-sm">
           © {new Date().getFullYear()} Amir Crljenkovic. Alle rechten voorbehouden.
         </div>
 
-        
+        {/* Icons */}
         <div className="flex space-x-4 mt-4 md:mt-0">
           <a
             href="https://www.linkedin.com/in/amir-crljenkovic-600309272/"
@@ -60,13 +60,11 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            
             <img
               src={githubIconLight}
               alt="GitHub Light Mode"
               className="w-8 h-8 hover:scale-110 transition-transform dark:hidden"
             />
-            
             <img
               src={githubIconDark}
               alt="GitHub Dark Mode"

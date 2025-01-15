@@ -7,34 +7,67 @@ import MountainDividerDark from "../icons/mountain-divider-dark.svg";
 import Logo from "../img/logo-darkmode.png";
 
 const Hero = () => {
+  
   const [text, setText] = useState("");
+  const [loopIndex, setLoopIndex] = useState(0);   
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const fullText = "Full Stack Developer";
-  const typingSpeed = 100;
+  
+  const roles = [
+    "Front-end Developer",
+    "Onderweg naar Full-Stack Developer",
+    "Web Designer"
+  ];
+
+  
+  const TYPING_SPEED = 100;          
+  const DELETING_SPEED = 50;         
+  const PAUSE_BETWEEN_WORDS = 1000;  
 
   useEffect(() => {
     
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      setText(fullText.substring(0, index + 1));
-      index++;
-      if (index === fullText.length) clearInterval(typingInterval);
-    }, typingSpeed);
+    const currentIndex = loopIndex % roles.length;
+    const fullText = roles[currentIndex];
 
-    return () => clearInterval(typingInterval);
-  }, []);
+    let timer;
 
-  useEffect(() => {
     
+    if (!isDeleting && text === fullText) {
+      timer = setTimeout(() => setIsDeleting(true), PAUSE_BETWEEN_WORDS);
+
+    
+    } else if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setLoopIndex(loopIndex + 1);
+
+    
+    } else {
+      timer = setTimeout(() => {
+        setText((prevText) => {
+          if (!isDeleting) {
+            
+            return fullText.substring(0, prevText.length + 1);
+          } else {
+            
+            return fullText.substring(0, prevText.length - 1);
+          }
+        });
+      }, isDeleting ? DELETING_SPEED : TYPING_SPEED);
+    }
+
+    
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopIndex, roles]);
+
+  
+  useEffect(() => {
     const initialDark = document.documentElement.classList.contains("dark");
     setIsDarkMode(initialDark);
 
-    
     const handleDarkModeChanged = (e) => {
       setIsDarkMode(e.detail.dark);
     };
-
     window.addEventListener("dark-mode-changed", handleDarkModeChanged);
 
     return () => {
@@ -70,9 +103,11 @@ const Hero = () => {
         <div className="mb-6">
           <img src={Logo} alt="Logo" className="h-32 mx-auto" />
         </div>
+        
         <h1 className="text-lg md:text-xl font-light text-white mb-4">
           Hello, I'm Amir. A passionate Software Developer.
         </h1>
+        
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
           {text}
           <span className="inline-block animate-blink">|</span>
@@ -90,10 +125,8 @@ const Hero = () => {
           >
             Download CV
           </a>
-
-          
           <a
-            href="#contact" 
+            href="#contact"
             onClick={handleScrollToContact}
             className="
               bg-gray-200 hover:bg-gray-300 
