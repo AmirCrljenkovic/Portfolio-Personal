@@ -11,10 +11,10 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Projectspage from "./pages/Projectspage";
 
+
 const App = () => {
     return (
         <Router>
-
             <Header />
             <ScrollToSection />
             <Routes>

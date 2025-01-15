@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Slider from "react-slick";
 import client from "../../contentfulClient";
 import Footer from "../components/Footer";
@@ -6,6 +7,7 @@ import Footer from "../components/Footer";
 const Projectspage = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [searchParams] = useSearchParams(); 
 
   const sliderSettings = {
     dots: true,
@@ -24,26 +26,38 @@ const Projectspage = () => {
         const response = await client.getEntries({ content_type: "portfolio" });
         const formattedProjects = response.items.map((item) => ({
           title: item.fields.title,
-          slug: item.fields.slug, // Nieuw veld toegevoegd
+          projectSlug: item.fields.projectSlug, 
           languages: item.fields.languages,
           description: item.fields.description,
           idea: item.fields.idea,
           functions: item.fields.functions,
           website: item.fields.website,
           github: item.fields.github,
+          
+          slug: item.fields.slug,
           images: item.fields.images
             ? item.fields.images.map((img) => img.fields.file.url)
             : [],
         }));
         setProjects(formattedProjects);
+
+        
+        const slugQuery = searchParams.get("slug");
+        if (slugQuery) {
+          const matchedProject = formattedProjects.find(
+            (project) => project.projectSlug === slugQuery
+          );
+          if (matchedProject) {
+            setSelectedProject(matchedProject);
+          }
+        }
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
     };
     fetchProjects();
-  }, []);
+  }, [searchParams]);
 
-  const openModal = (project) => setSelectedProject(project);
   const closeModal = () => setSelectedProject(null);
 
   return (
@@ -60,7 +74,7 @@ const Projectspage = () => {
             <div
               key={index}
               className="bg-white dark:bg-[#282828] rounded-lg shadow-lg cursor-pointer transform transition duration-500 hover:scale-105 hover:shadow-xl"
-              onClick={() => openModal(project)}
+              onClick={() => setSelectedProject(project)}
             >
               {project.images[0] && (
                 <img
@@ -103,6 +117,7 @@ const Projectspage = () => {
                   </div>
                 ))}
               </Slider>
+
               <h2 className="text-3xl font-bold mb-4">
                 {selectedProject.title}
               </h2>
@@ -110,8 +125,10 @@ const Projectspage = () => {
                 {selectedProject.languages}
               </p>
               <p className="text-xl mb-6">{selectedProject.description}</p>
+
               <h3 className="text-2xl font-bold mb-4">Het Idee:</h3>
               <p className="text-lg mb-6">{selectedProject.idea}</p>
+
               <h3 className="text-2xl font-bold mb-4">Functies:</h3>
               {Array.isArray(selectedProject.functions) ? (
                 <ul className="mb-6 text-lg space-y-2">
@@ -128,9 +145,21 @@ const Projectspage = () => {
                 <p className="mb-6 text-lg">{selectedProject.functions}</p>
               )}
 
-              {/* Knoppen */}
+              
               <div className="flex space-x-4 mt-4">
-                {selectedProject.website ? (
+                
+                {selectedProject.slug && (
+                  <a
+                    href={`/projects/${selectedProject.slug}/index.html`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
+                  >
+                    Bekijk Project
+                  </a>
+                )}
+
+                {selectedProject.website && (
                   <a
                     href={selectedProject.website}
                     target="_blank"
@@ -139,18 +168,8 @@ const Projectspage = () => {
                   >
                     Bezoek Website
                   </a>
-                ) : (
-                  selectedProject.slug && (
-                    <a
-                      href={`/projects/${selectedProject.slug}/index.html`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
-                    >
-                      Bekijk Project
-                    </a>
-                  )
                 )}
+                
                 {selectedProject.github && (
                   <a
                     href={selectedProject.github}
