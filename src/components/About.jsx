@@ -30,10 +30,12 @@ const AboutMe = () => {
             Over Mij
           </h2>
           <p className="text-lg text-gray-600 dark:text-white mb-6">
-            Hallo! Mijn naam is [Jouw Naam], een gepassioneerde
-            ontwikkelaar met een liefde voor het bouwen van mooie
-            en functionele websites. Ik werk graag met de nieuwste
-            technologieën om innovatieve oplossingen te creëren.
+          Ik ben Amir Crljenkovic, 20 jaar jong en woon in Purmerend. 
+          Op dit moment focus ik me op front-end development, 
+          maar ik ga graag voor een full-stack toekomst. 
+          Naast het bouwen van interactieve webapplicaties
+          luister ik veel muziek en verzamel ik niche parfums. 
+          Elke geur heeft z’n eigen karakter—net als iedere regel code.
           </p>
           <button
             onClick={handleScrollToContact} 
