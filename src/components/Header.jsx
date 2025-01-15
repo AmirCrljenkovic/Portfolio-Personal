@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
+import { useTranslation } from "react-i18next"; 
+
 import LogoDarkMode from "../img/logo-darkmode.png";
 import LogoLightMode from "../img/logo-lightmode.png";
 import YinYangSVG from "../icons/yinyang.svg";
@@ -9,25 +11,28 @@ import ENFlag from "../img/flags/en.png";
 import DEFlag from "../img/flags/de.png";
 
 const Header = () => {
+  const { i18n, t } = useTranslation(); 
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("nl");
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
 
+  const location = useLocation();
+
+  
   const languages = {
     nl: { label: "NL", flag: NLFlag },
     en: { label: "EN", flag: ENFlag },
     de: { label: "DE", flag: DEFlag },
   };
 
-  const location = useLocation();
-
+  
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "nl";
-    setCurrentLanguage(savedLanguage);
-  }, []);
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
+  
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
@@ -39,6 +44,7 @@ const Header = () => {
     window.dispatchEvent(event);
   };
 
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -57,7 +63,7 @@ const Header = () => {
     }
   };
 
-  
+ 
   const handleLogoClick = (e) => {
     e.preventDefault();
     setActiveSection("hero");
@@ -72,11 +78,28 @@ const Header = () => {
     }
   };
 
+  
   const handleLanguageChange = (lang) => {
-    setCurrentLanguage(lang);
+    i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
     setIsLanguageDropdownOpen(false);
   };
+
+  const navItems = [
+    { label: t("nav.home"), section: "hero" },
+    { label: t("nav.about"), section: "about" },
+    { label: t("nav.skills"), section: "skills" },
+    { label: t("nav.projects"), section: "projects" },
+    { label: t("nav.contact"), section: "contact" },
+  ];
+
+  const mobileNavItems = [
+    { label: t("nav.home"), section: "hero" },
+    { label: t("nav.about"), section: "about" },
+    { label: t("nav.skills"), section: "skills" },
+    { label: t("nav.projects"), section: "projects" },
+    { label: t("nav.contact"), section: "contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 w-full bg-[#F5F5F5] dark:bg-[#202120] shadow-md z-50">
@@ -113,15 +136,9 @@ const Header = () => {
           </div>
         </div>
 
-       
+        
         <nav className="hidden md:flex flex-1 justify-center space-x-8">
-          {[
-            { label: "Home", section: "hero" },
-            { label: "Over Mij", section: "about" },
-            { label: "Skills", section: "skills" },
-            { label: "Projecten", section: "projects" },
-            { label: "Contact", section: "contact" },
-          ].map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.section}
               onClick={() => handleScrollToSection(item.section)}
@@ -144,8 +161,9 @@ const Header = () => {
           ))}
         </nav>
 
-       
+        
         <div className="hidden md:flex items-center space-x-4">
+          
           <div
             className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
             onClick={toggleDarkMode}
@@ -161,18 +179,19 @@ const Header = () => {
             </div>
           </div>
 
+          
           <div className="relative">
             <button
               className="flex items-center space-x-2"
               onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
             >
               <img
-                src={languages[currentLanguage]?.flag}
-                alt={languages[currentLanguage]?.label}
+                src={languages[i18n.language]?.flag}
+                alt={languages[i18n.language]?.label}
                 className="w-6 h-6 object-cover rounded-full"
               />
               <span className="text-gray-800 dark:text-gray-200 text-sm">
-                {languages[currentLanguage]?.label}
+                {languages[i18n.language]?.label}
               </span>
             </button>
             {isLanguageDropdownOpen && (
@@ -228,7 +247,7 @@ const Header = () => {
         </button>
       </div>
 
-      
+     
       <div
         className={`
           md:hidden fixed top-0 left-0 w-full h-screen 
@@ -244,13 +263,8 @@ const Header = () => {
           ✖
         </button>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
-          {[
-            { label: "Home", section: "hero" },
-            { label: "Over Mij", section: "about" },
-            { label: "Skills", section: "skills" },
-            { label: "Projecten", section: "projects" },
-            { label: "Contact", section: "contact" },
-          ].map((item) => (
+          
+          {mobileNavItems.map((item) => (
             <button
               key={item.section}
               onClick={() => {
@@ -275,11 +289,15 @@ const Header = () => {
             </button>
           ))}
 
+          
           <div className="flex flex-col items-center space-y-2">
             {Object.entries(languages).map(([key, { label, flag }]) => (
               <button
                 key={key}
-                onClick={() => handleLanguageChange(key)}
+                onClick={() => {
+                  handleLanguageChange(key);
+                  toggleMenu();
+                }}
                 className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
               >
                 <img

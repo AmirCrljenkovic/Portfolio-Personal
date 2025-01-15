@@ -1,32 +1,37 @@
+// src/components/Hero.jsx
 import React, { useState, useEffect } from "react";
-import { scroller } from "react-scroll"; 
-import leafsImage from "../img/leafs.png";
+import { scroller } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
+import leafsImage from "../img/leafs.png";
 import MountainDividerLight from "../icons/mountain-divider.svg";
 import MountainDividerDark from "../icons/mountain-divider-dark.svg";
 import Logo from "../img/logo-darkmode.png";
 
 const Hero = () => {
   
+  const { t } = useTranslation();
+
+  
   const [text, setText] = useState("");
-  const [loopIndex, setLoopIndex] = useState(0);   
+  const [loopIndex, setLoopIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   
   const roles = [
-    "Front-end Developer",
-    "Onderweg naar Full-Stack Developer",
-    "Web Designer"
+    t("hero.typedFront"),
+    t("hero.typedMid"),
+    t("hero.typedDesign"),
   ];
 
   
-  const TYPING_SPEED = 100;          
-  const DELETING_SPEED = 50;         
-  const PAUSE_BETWEEN_WORDS = 1000;  
+  const TYPING_SPEED = 100;
+  const DELETING_SPEED = 50;
+  const PAUSE_BETWEEN_WORDS = 1000;
 
+  
   useEffect(() => {
-    
     const currentIndex = loopIndex % roles.length;
     const fullText = roles[currentIndex];
 
@@ -46,17 +51,14 @@ const Hero = () => {
       timer = setTimeout(() => {
         setText((prevText) => {
           if (!isDeleting) {
-            
             return fullText.substring(0, prevText.length + 1);
           } else {
-            
             return fullText.substring(0, prevText.length - 1);
           }
         });
       }, isDeleting ? DELETING_SPEED : TYPING_SPEED);
     }
 
-    
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopIndex, roles]);
 
@@ -77,11 +79,11 @@ const Hero = () => {
 
   
   const handleScrollToContact = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     scroller.scrollTo("contact", {
       smooth: true,
       duration: 500,
-      offset: -80, 
+      offset: -80,
     });
   };
 
@@ -98,21 +100,23 @@ const Hero = () => {
       
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      
       <div className="relative z-10 text-center text-white px-6">
         <div className="mb-6">
           <img src={Logo} alt="Logo" className="h-32 mx-auto" />
         </div>
+
         
         <h1 className="text-lg md:text-xl font-light text-white mb-4">
-          Hello, I'm Amir. A passionate Software Developer.
+          {t("hero.greeting")}
         </h1>
+
         
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
           {text}
           <span className="inline-block animate-blink">|</span>
         </h2>
 
+        
         <div className="flex justify-center space-x-4">
           <a
             href="/path/to/your-cv.pdf"
@@ -123,7 +127,7 @@ const Hero = () => {
               rounded-lg transition duration-300
             "
           >
-            Download CV
+            {t("hero.downloadCV")}
           </a>
           <a
             href="#contact"
@@ -134,7 +138,7 @@ const Hero = () => {
               rounded-lg transition duration-300
             "
           >
-            Contact Me
+            {t("hero.contactMe")}
           </a>
         </div>
       </div>

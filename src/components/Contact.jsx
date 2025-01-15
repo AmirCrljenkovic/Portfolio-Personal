@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
 
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import MountainDividerLight from "../icons/triangle-asymmetrical-divider-inverse.svg";
 import MountainDividerDark from "../icons/triangle-asymmetrical-divider-inverse-dark.svg";
 
 const Contact = () => {
-  
+  const { t } = useTranslation();
+
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    
     const initialDark = document.documentElement.classList.contains("dark");
     setIsDarkMode(initialDark);
 
-    
     const handleDarkModeChanged = (e) => {
       setIsDarkMode(e.detail.dark);
     };
@@ -26,7 +26,6 @@ const Contact = () => {
   }, []);
 
   return (
-    
     <section id="contact" className="relative py-16 bg-white dark:bg-[#121212]">
       <div className="absolute top-0 left-0 w-full -mt-1">
         <img
@@ -38,18 +37,19 @@ const Contact = () => {
 
       <div className="container mx-auto px-6 pt-16">
         <h2 className="text-5xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-          Contact
+          {t("contact.title")}
         </h2>
+
         <div className="flex flex-col lg:flex-row items-center gap-12">
-         
           <div className="w-full lg:w-1/2 space-y-6">
+           
             <div
               className="
                 flex items-center
                 bg-gray-100 dark:bg-[#282828]
                 p-5 rounded-md shadow-md group cursor-pointer
               "
-              onClick={() => (window.location.href = 'tel:+31621803724')}
+              onClick={() => (window.location.href = "tel:+31621803724")}
             >
               <div
                 className="
@@ -57,7 +57,7 @@ const Contact = () => {
                   p-4 rounded-full mr-4
                   flex items-center justify-center
                 "
-                style={{ width: '48px', height: '48px' }}
+                style={{ width: "48px", height: "48px" }}
               >
                 <span className="text-white group-hover:animate-realistic-shake">📱</span>
               </div>
@@ -66,13 +66,14 @@ const Contact = () => {
               </p>
             </div>
 
+            
             <div
               className="
                 flex items-center
                 bg-gray-100 dark:bg-[#282828]
                 p-5 rounded-md shadow-md group cursor-pointer
               "
-              onClick={() => (window.location.href = 'mailto:amircrljenkovic@outlook.com')}
+              onClick={() => (window.location.href = "mailto:amircrljenkovic@outlook.com")}
             >
               <div
                 className="
@@ -80,7 +81,7 @@ const Contact = () => {
                   p-4 rounded-full mr-4
                   flex items-center justify-center
                 "
-                style={{ width: '48px', height: '48px' }}
+                style={{ width: "48px", height: "48px" }}
               >
                 <span className="text-white group-hover:animate-bounce-once">✉️</span>
               </div>
@@ -89,6 +90,7 @@ const Contact = () => {
               </p>
             </div>
 
+            
             <div
               className="
                 flex items-center
@@ -97,8 +99,8 @@ const Contact = () => {
               "
               onClick={() =>
                 window.open(
-                  'https://www.google.com/maps?q=Purmerend,+Netherlands',
-                  '_blank'
+                  "https://www.google.com/maps?q=Purmerend,+Netherlands",
+                  "_blank"
                 )
               }
             >
@@ -108,16 +110,18 @@ const Contact = () => {
                   p-4 rounded-full mr-4
                   flex items-center justify-center
                 "
-                style={{ width: '48px', height: '48px' }}
+                style={{ width: "48px", height: "48px" }}
               >
                 <span className="text-white group-hover:animate-pulse-location">📍</span>
               </div>
               <p className="text-gray-800 dark:text-gray-300 font-medium">
-                Purmerend, Netherlands
+                
+                {t("contact.location")}
               </p>
             </div>
           </div>
 
+          
           <div className="w-full lg:w-1/2">
             <form
               action="https://formspree.io/f/mkggperr"
@@ -126,7 +130,7 @@ const Contact = () => {
             >
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Naam
+                  {t("contact.name")}
                 </label>
                 <input
                   type="text"
@@ -141,9 +145,10 @@ const Contact = () => {
                   required
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  E-mail
+                  {t("contact.email")}
                 </label>
                 <input
                   type="email"
@@ -158,9 +163,10 @@ const Contact = () => {
                   required
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Bericht
+                  {t("contact.message")}
                 </label>
                 <textarea
                   name="message"
@@ -175,6 +181,7 @@ const Contact = () => {
                   required
                 ></textarea>
               </div>
+
               <button
                 type="submit"
                 className="
@@ -183,7 +190,7 @@ const Contact = () => {
                   rounded-md transition
                 "
               >
-                Verstuur
+                {t("contact.send")}
               </button>
             </form>
           </div>

@@ -1,20 +1,16 @@
-'use client';
-import { motion, MotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import React from 'react';
-import { useMediaQuery } from '../hooks/useMediaQuery';
-import { useNavigate } from 'react-router-dom';
+"use client";
+import React from "react";
+import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
-export const HeroParallax = ({
-  products
-}: {
-  products: {
-    title: string;
-    slug: string; 
-    thumbnail: string;
-  }[];
-}) => {
-  const navigate = useNavigate(); 
-  const isMobile = useMediaQuery('(max-width: 768px)');
+
+import { useTranslation } from "react-i18next";
+
+export const HeroParallax = ({ products }) => {
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const firstRow = products.slice(0, 3);
   const secondRow = products.slice(3, 6);
   const thirdRow = products.slice(6, 9);
@@ -22,7 +18,7 @@ export const HeroParallax = ({
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start start', 'end start']
+    offset: ["start start", "end start"],
   });
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
@@ -33,11 +29,11 @@ export const HeroParallax = ({
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
   const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
 
-  const handleCardClick = (slug: string) => {
+  const handleCardClick = (slug) => {
     if (slug) {
-      navigate(`/projects?slug=${slug}`); 
+      navigate(`/projects?slug=${slug}`);
     } else {
-      console.error('Slug is undefined');
+      console.error("Slug is undefined");
     }
   };
 
@@ -52,7 +48,9 @@ export const HeroParallax = ({
           text-gray-900 dark:text-white
         "
       >
+        
         <Header />
+
         {products.map((product) => (
           <motion.div
             key={product.title}
@@ -67,12 +65,14 @@ export const HeroParallax = ({
               alt={product.title}
               className="h-full w-full object-cover rounded-lg"
             />
-            <div className="
-              absolute inset-0 bg-black bg-opacity-50 
-              flex items-center justify-center 
-              opacity-0 hover:opacity-100 
-              transition-opacity duration-300
-            ">
+            <div
+              className="
+                absolute inset-0 bg-black bg-opacity-50 
+                flex items-center justify-center 
+                opacity-0 hover:opacity-100 
+                transition-opacity duration-300
+              "
+            >
               <h2 className="text-white text-lg font-semibold">{product.title}</h2>
             </div>
           </motion.div>
@@ -94,12 +94,13 @@ export const HeroParallax = ({
       "
     >
       <Header />
+
       <motion.div
         style={{
           rotateX,
           rotateZ,
           translateY,
-          opacity
+          opacity,
         }}
       >
         <motion.div className="mb-20 flex flex-row-reverse space-x-4 md:space-x-20 md:space-x-reverse">
@@ -139,31 +140,25 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => (
-  <div className="relative mx-auto w-full max-w-5xl px-4 py-10 md:py-40">
-    <h1 className="font-bold text-4xl text-center md:text-left md:text-7xl text-gray-800 dark:text-white">
-      Projects
-    </h1>
-  </div>
-);
+export const Header = () => {
+  
+  const { t } = useTranslation();
 
-export const ProductCard = ({
-  product,
-  translate,
-  onClick
-}: {
-  product: {
-    title: string;
-    slug: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-  onClick: () => void;
-}) => {
+  return (
+    <div className="relative mx-auto w-full max-w-5xl px-4 py-10 md:py-40">
+      
+      <h1 className="font-bold text-4xl text-center md:text-left md:text-7xl text-gray-800 dark:text-white">
+        {t("projectsSection.title")}
+      </h1>
+    </div>
+  );
+};
+
+export const ProductCard = ({ product, translate, onClick }) => {
   return (
     <motion.div
       style={{
-        x: translate
+        x: translate,
       }}
       whileHover={{ y: -20 }}
       key={product.title}

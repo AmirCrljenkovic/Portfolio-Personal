@@ -1,4 +1,7 @@
+// src/components/Footer.jsx
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import linkedinIcon from '../img/linkedin.png';
 import githubIconLight from '../img/githubblack.png';
 import githubIconDark from '../img/githubwhite.png';
@@ -6,6 +9,9 @@ import logoLight from '../img/logo-lightmode.png';
 import logoDark from '../img/logo-darkmode.png';
 
 const Footer = () => {
+  
+  const { t } = useTranslation();
+
   return (
     <footer 
       className="
@@ -19,10 +25,9 @@ const Footer = () => {
         ease-in-out
       "
     >
-      
       <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center justify-between">
         
-        {/* Logo */}
+        
         <div className="flex items-center">
           <img
             src={logoLight}
@@ -36,12 +41,13 @@ const Footer = () => {
           />
         </div>
 
-        {/* Copyright */}
+        
         <div className="mt-4 md:mt-0 text-center text-sm">
-          © {new Date().getFullYear()} Amir Crljenkovic. Alle rechten voorbehouden.
+          
+          {t("footer.rights", { year: new Date().getFullYear() })}
         </div>
 
-        {/* Icons */}
+        
         <div className="flex space-x-4 mt-4 md:mt-0">
           <a
             href="https://www.linkedin.com/in/amir-crljenkovic-600309272/"

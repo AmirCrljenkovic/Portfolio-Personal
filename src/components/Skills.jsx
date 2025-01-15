@@ -1,4 +1,7 @@
+
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import MountainDividerLight from "../icons/pyramid-divider.svg";
 import MountainDividerDark from "../icons/pyramid-divider-dark.svg";
 import htmlIconLight from "../icons/light/html-light.svg";
@@ -20,7 +23,9 @@ import tsIconDark from "../icons/dark/ts-dark.svg";
 import wordpressIconLight from "../icons/light/wordpress-light.svg";
 import wordpressIconDark from "../icons/dark/wordpress-dark.svg";
 
-const SkillCard = ({ name, iconLight, iconDark, isDarkMode }) => {
+
+const SkillCard = ({ nameKey, iconLight, iconDark, isDarkMode }) => {
+  const { t } = useTranslation(); 
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
@@ -40,53 +45,51 @@ const SkillCard = ({ name, iconLight, iconDark, isDarkMode }) => {
       className="relative group rounded-lg cursor-pointer overflow-hidden transition-transform duration-300 shadow-md"
       style={{
         height: "180px",
-        
         backgroundColor: "#F5F5F5",
         transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg) scale(1.05)`,
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTilt}
     >
-      
       <div className="absolute inset-0 bg-[#F5F5F5] dark:bg-[#282828] transition-colors duration-300"></div>
-
-      
       <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-300"></div>
 
-     
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800 dark:text-white">
         <img
           src={isDarkMode ? iconDark : iconLight}
-          alt={name}
+          alt={nameKey}
           className="w-16 h-16 group-hover:scale-110 transition-transform duration-300"
         />
-        <h3 className="text-lg font-semibold mt-4">{name}</h3>
+        
+        <h3 className="text-lg font-semibold mt-4">
+          {t(`skills.${nameKey}`)}
+        </h3>
       </div>
     </div>
   );
 };
 
 const SkillsSection = () => {
+  const { t } = useTranslation();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  
   const skills = [
-    { id: 1, name: "HTML", iconLight: htmlIconLight, iconDark: htmlIconDark },
-    { id: 2, name: "CSS", iconLight: cssIconLight, iconDark: cssIconDark },
-    { id: 3, name: "JavaScript", iconLight: jsIconLight, iconDark: jsIconDark },
-    { id: 4, name: "React", iconLight: reactIconLight, iconDark: reactIconDark },
-    { id: 5, name: "Tailwind CSS", iconLight: tailwindIconLight, iconDark: tailwindIconDark },
-    { id: 6, name: "SASS", iconLight: sassIconLight, iconDark: sassIconDark },
-    { id: 7, name: "Vite", iconLight: viteIconLight, iconDark: viteIconDark },
-    { id: 8, name: "TypeScript", iconLight: tsIconLight, iconDark: tsIconDark },
-    { id: 9, name: "WordPress", iconLight: wordpressIconLight, iconDark: wordpressIconDark },
+    { id: 1, nameKey: "html", iconLight: htmlIconLight, iconDark: htmlIconDark },
+    { id: 2, nameKey: "css", iconLight: cssIconLight, iconDark: cssIconDark },
+    { id: 3, nameKey: "javascript", iconLight: jsIconLight, iconDark: jsIconDark },
+    { id: 4, nameKey: "react", iconLight: reactIconLight, iconDark: reactIconDark },
+    { id: 5, nameKey: "tailwind", iconLight: tailwindIconLight, iconDark: tailwindIconDark },
+    { id: 6, nameKey: "sass", iconLight: sassIconLight, iconDark: sassIconDark },
+    { id: 7, nameKey: "vite", iconLight: viteIconLight, iconDark: viteIconDark },
+    { id: 8, nameKey: "typescript", iconLight: tsIconLight, iconDark: tsIconDark },
+    { id: 9, nameKey: "wordpress", iconLight: wordpressIconLight, iconDark: wordpressIconDark },
   ];
 
   useEffect(() => {
-    
     const initialDark = document.documentElement.classList.contains("dark");
     setIsDarkMode(initialDark);
 
-    
     const handleDarkModeChanged = (e) => {
       setIsDarkMode(e.detail.dark);
     };
@@ -98,9 +101,7 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    
     <section id="skills" className="relative bg-gray-50 dark:bg-[#121212] pb-16">
-      
       <div className="-mt-px">
         <img
           src={isDarkMode ? MountainDividerDark : MountainDividerLight}
@@ -110,14 +111,16 @@ const SkillsSection = () => {
       </div>
 
       <div className="relative container mx-auto px-6 pt-16">
+        
         <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-          Mijn Vaardigheden
+          {t("skills.title")}
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {skills.map((skill) => (
             <SkillCard
               key={skill.id}
-              name={skill.name}
+              nameKey={skill.nameKey}
               iconLight={skill.iconLight}
               iconDark={skill.iconDark}
               isDarkMode={isDarkMode}
