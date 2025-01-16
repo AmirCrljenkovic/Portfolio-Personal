@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -40,160 +39,96 @@ const Contact = () => {
           {t("contact.title")}
         </h2>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="w-full lg:w-1/2 space-y-6">
-           
-            <div
-              className="
-                flex items-center
-                bg-gray-100 dark:bg-[#282828]
-                p-5 rounded-md shadow-md group cursor-pointer
-              "
-              onClick={() => (window.location.href = "tel:+31621803724")}
-            >
-              <div
+        <div className="w-full lg:w-1/2 mx-auto">
+          <form
+            action="https://formspree.io/f/mkggperr"
+            method="POST"
+            className="bg-gray-100 dark:bg-[#282828] p-8 rounded-md shadow-md space-y-6"
+          >
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {t("contact.name")}
+              </label>
+              <input
+                type="text"
+                name="name"
                 className="
-                  bg-[#3C493F] dark:bg-[#7E8D85]
-                  p-4 rounded-full mr-4
-                  flex items-center justify-center
+                  mt-2 p-3 w-full border border-gray-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-[#3C493F]
+                  dark:focus:ring-[#7E8D85]
+                  dark:bg-[#353635] dark:text-white
+                  dark:border-gray-600
                 "
-                style={{ width: "48px", height: "48px" }}
-              >
-                <span className="text-white group-hover:animate-realistic-shake">📱</span>
-              </div>
-              <p className="text-gray-800 dark:text-gray-300 font-medium">
-                +31621803724
-              </p>
+                required
+              />
             </div>
 
-            
-            <div
-              className="
-                flex items-center
-                bg-gray-100 dark:bg-[#282828]
-                p-5 rounded-md shadow-md group cursor-pointer
-              "
-              onClick={() => (window.location.href = "mailto:amircrljenkovic@outlook.com")}
-            >
-              <div
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {t("contact.email")}
+              </label>
+              <input
+                type="email"
+                name="email"
                 className="
-                  bg-[#3C493F] dark:bg-[#7E8D85]
-                  p-4 rounded-full mr-4
-                  flex items-center justify-center
+                  mt-2 p-3 w-full border border-gray-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-[#3C493F]
+                  dark:focus:ring-[#7E8D85]
+                  dark:bg-[#353635] dark:text-white
+                  dark:border-gray-600
                 "
-                style={{ width: "48px", height: "48px" }}
-              >
-                <span className="text-white group-hover:animate-bounce-once">✉️</span>
-              </div>
-              <p className="text-gray-800 dark:text-gray-300 font-medium">
-                amircrljenkovic@outlook.com
-              </p>
+                required
+              />
             </div>
 
-            
-            <div
-              className="
-                flex items-center
-                bg-gray-100 dark:bg-[#282828]
-                p-5 rounded-md shadow-md group cursor-pointer
-              "
-              onClick={() =>
-                window.open(
-                  "https://www.google.com/maps?q=Purmerend,+Netherlands",
-                  "_blank"
-                )
-              }
-            >
-              <div
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {t("contact.phone")}
+              </label>
+              <input
+                type="tel"
+                name="phone"
                 className="
-                  bg-[#3C493F] dark:bg-[#7E8D85]
-                  p-4 rounded-full mr-4
-                  flex items-center justify-center
+                  mt-2 p-3 w-full border border-gray-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-[#3C493F]
+                  dark:focus:ring-[#7E8D85]
+                  dark:bg-[#353635] dark:text-white
+                  dark:border-gray-600
                 "
-                style={{ width: "48px", height: "48px" }}
-              >
-                <span className="text-white group-hover:animate-pulse-location">📍</span>
-              </div>
-              <p className="text-gray-800 dark:text-gray-300 font-medium">
-                
-                {t("contact.location")}
-              </p>
+                placeholder={`(${t("contact.phoneOptional")})`}
+              />
+              <p className="text-sm text-gray-500 mt-1">{t("contact.phoneOptional")}</p>
             </div>
-          </div>
 
-          
-          <div className="w-full lg:w-1/2">
-            <form
-              action="https://formspree.io/f/mkggperr"
-              method="POST"
-              className="bg-gray-100 dark:bg-[#282828] p-8 rounded-md shadow-md space-y-6"
-            >
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.name")}
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="
-                    mt-2 p-3 w-full border border-gray-300 rounded-md
-                    focus:outline-none focus:ring-2 focus:ring-[#3C493F]
-                    dark:focus:ring-[#7E8D85]
-                    dark:bg-[#353635] dark:text-white
-                    dark:border-gray-600
-                  "
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.email")}
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  className="
-                    mt-2 p-3 w-full border border-gray-300 rounded-md
-                    focus:outline-none focus:ring-2 focus:ring-[#3C493F]
-                    dark:focus:ring-[#7E8D85]
-                    dark:bg-[#353635] dark:text-white
-                    dark:border-gray-600
-                  "
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.message")}
-                </label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  className="
-                    mt-2 p-3 w-full border border-gray-300 rounded-md
-                    focus:outline-none focus:ring-2 focus:ring-[#3C493F]
-                    dark:focus:ring-[#7E8D85]
-                    dark:bg-[#353635] dark:text-white
-                    dark:border-gray-600
-                  "
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {t("contact.message")}
+              </label>
+              <textarea
+                name="message"
+                rows="4"
                 className="
-                  w-full bg-[#3C493F] dark:bg-[#7E8D85]
-                  hover:opacity-90 text-white py-3
-                  rounded-md transition
+                  mt-2 p-3 w-full border border-gray-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-[#3C493F]
+                  dark:focus:ring-[#7E8D85]
+                  dark:bg-[#353635] dark:text-white
+                  dark:border-gray-600
                 "
-              >
-                {t("contact.send")}
-              </button>
-            </form>
-          </div>
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="
+                w-full bg-[#3C493F] dark:bg-[#7E8D85]
+                hover:opacity-90 text-white py-3
+                rounded-md transition
+              "
+            >
+              {t("contact.send")}
+            </button>
+          </form>
         </div>
       </div>
     </section>
