@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'icon-light-color': '#3C493F',  // Kleur in light mode
-        'icon-dark-color': '#7E8D85',   // Kleur in dark mode
+        'icon-light-color': '#3C493F',  
+        'icon-dark-color': '#7E8D85',   
         darkbg: '#202120',
       },
       keyframes: {

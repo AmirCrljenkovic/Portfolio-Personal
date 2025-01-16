@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Slider from "react-slick";
+import { useTranslation } from "react-i18next"; 
 import client from "../../contentfulClient";
 import Footer from "../components/Footer";
 
 const Projectspage = () => {
+  const { t, i18n } = useTranslation(); 
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [searchParams] = useSearchParams(); 
+  const [searchParams] = useSearchParams();
 
   const sliderSettings = {
     dots: true,
@@ -23,25 +25,52 @@ const Projectspage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await client.getEntries({ content_type: "portfolio" });
-        const formattedProjects = response.items.map((item) => ({
-          title: item.fields.title,
-          projectSlug: item.fields.projectSlug, 
-          languages: item.fields.languages,
-          description: item.fields.description,
-          idea: item.fields.idea,
-          functions: item.fields.functions,
-          website: item.fields.website,
-          github: item.fields.github,
+        const response = await client.getEntries({
+          content_type: "portfolio",
+        });
+
+        const formattedProjects = response.items.map((item) => {
+          const lang = i18n.language; 
+          const isDefaultLang = lang === "nl"; 
+
           
-          slug: item.fields.slug,
-          images: item.fields.images
-            ? item.fields.images.map((img) => img.fields.file.url)
-            : [],
-        }));
+          console.log("Fetched Item Fields:", item.fields);
+
+          
+          const descriptionField = lang === "nl"
+            ? item.fields.description
+            : lang === "en"
+            ? item.fields.descriptionEn
+            : item.fields.descriptionDe;
+          const ideaField = lang === "nl"
+            ? item.fields.idea
+            : lang === "en"
+            ? item.fields.ideaEn
+            : item.fields.ideaDe;
+          const functionsField = lang === "nl"
+            ? item.fields.functions
+            : lang === "en"
+            ? item.fields.functionsEn
+            : item.fields.functionsDe;
+
+          return {
+            title: item.fields.title,
+            projectSlug: item.fields.projectSlug,
+            languages: item.fields.languages,
+            description: descriptionField,
+            idea: ideaField,
+            functions: functionsField,
+            website: item.fields.website,
+            github: item.fields.github,
+            slug: item.fields.slug,
+            images: item.fields.images
+              ? item.fields.images.map((img) => img.fields.file.url)
+              : [],
+          };
+        });
+
         setProjects(formattedProjects);
 
-        
         const slugQuery = searchParams.get("slug");
         if (slugQuery) {
           const matchedProject = formattedProjects.find(
@@ -55,8 +84,9 @@ const Projectspage = () => {
         console.error("Error fetching projects:", error);
       }
     };
+
     fetchProjects();
-  }, [searchParams]);
+  }, [i18n.language, searchParams]); 
 
   const closeModal = () => setSelectedProject(null);
 
@@ -64,7 +94,7 @@ const Projectspage = () => {
     <div className="min-h-screen bg-gray-100 dark:bg-[#121212] text-gray-900 dark:text-white">
       <div className="pt-40 pb-20">
         <h1 className="text-4xl md:text-5xl font-bold text-center">
-          Mijn Projecten
+          {t("projectsSection.title")}
         </h1>
       </div>
 
@@ -126,10 +156,14 @@ const Projectspage = () => {
               </p>
               <p className="text-xl mb-6">{selectedProject.description}</p>
 
-              <h3 className="text-2xl font-bold mb-4">Het Idee:</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                {t("projectsSection.idea")}
+              </h3>
               <p className="text-lg mb-6">{selectedProject.idea}</p>
 
-              <h3 className="text-2xl font-bold mb-4">Functies:</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                {t("projectsSection.functions")}
+              </h3>
               {Array.isArray(selectedProject.functions) ? (
                 <ul className="mb-6 text-lg space-y-2">
                   {selectedProject.functions.map((func, idx) => (
@@ -145,9 +179,7 @@ const Projectspage = () => {
                 <p className="mb-6 text-lg">{selectedProject.functions}</p>
               )}
 
-              
               <div className="flex space-x-4 mt-4">
-                
                 {selectedProject.slug && (
                   <a
                     href={`/projects/${selectedProject.slug}/index.html`}
@@ -155,7 +187,7 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    Bekijk Project
+                    {t("buttonProjects.label")}
                   </a>
                 )}
 
@@ -166,10 +198,10 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    Bezoek Website
+                    {t("buttonProjects.label")}
                   </a>
                 )}
-                
+
                 {selectedProject.github && (
                   <a
                     href={selectedProject.github}
@@ -177,7 +209,7 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    Bekijk op GitHub
+                    {t("buttonProjects.label")}
                   </a>
                 )}
               </div>

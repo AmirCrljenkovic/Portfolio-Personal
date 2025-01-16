@@ -8,7 +8,7 @@ const resources = {
       nav: {
         home: "Home",
         about: "Over Mij",
-        skills: "Skills",
+        skills: "Vaardigheden",
         projects: "Projecten",
         contact: "Contact",
       },
@@ -18,7 +18,7 @@ const resources = {
         typedMid: "Onderweg naar Full-Stack Developer",
         typedDesign: "Web Designer",
         downloadCV: "Download CV",
-        contactMe: "Contact Me",
+        contactMe: "Neem contact op",
       },
       aboutMe: {
         title: "Over Mij",
@@ -39,6 +39,8 @@ const resources = {
       },
       projectsSection: {
         title: "Projecten",
+        idea: "Het Idee",
+        functions: "Functies",
       },
       buttonProjects: {
         label: "Bekijk Alle Projecten",
@@ -93,6 +95,8 @@ const resources = {
       },
       projectsSection: {
         title: "Projects",
+        idea: "The Idea",
+        functions: "Features",
       },
       buttonProjects: {
         label: "View All Projects",
@@ -147,6 +151,8 @@ const resources = {
       },
       projectsSection: {
         title: "Projekte",
+        idea: "Die Idee",
+        functions: "Funktionen",
       },
       buttonProjects: {
         label: "Alle Projekte ansehen",
