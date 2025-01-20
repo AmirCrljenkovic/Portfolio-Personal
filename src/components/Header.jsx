@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 
 import LogoDarkMode from "../img/logo-darkmode.png";
 import LogoLightMode from "../img/logo-lightmode.png";
@@ -11,7 +11,7 @@ import ENFlag from "../img/flags/en.png";
 import DEFlag from "../img/flags/de.png";
 
 const Header = () => {
-  const { i18n, t } = useTranslation(); 
+  const { i18n, t } = useTranslation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -19,20 +19,37 @@ const Header = () => {
 
   const location = useLocation();
 
-  
   const languages = {
     nl: { label: "NL", flag: NLFlag },
     en: { label: "EN", flag: ENFlag },
     de: { label: "DE", flag: DEFlag },
   };
 
-  
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      let currentSection = "hero"; // Default sectie
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
+          currentSection = section.id;
+        }
+      });
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "nl";
     i18n.changeLanguage(savedLanguage);
   }, [i18n]);
 
-  
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
@@ -44,12 +61,10 @@ const Header = () => {
     window.dispatchEvent(event);
   };
 
-  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  
   const handleScrollToSection = (section) => {
     setActiveSection(section);
     if (location.pathname !== "/") {
@@ -63,7 +78,6 @@ const Header = () => {
     }
   };
 
- 
   const handleLogoClick = (e) => {
     e.preventDefault();
     setActiveSection("hero");
@@ -78,7 +92,6 @@ const Header = () => {
     }
   };
 
-  
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
@@ -104,7 +117,6 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-[#F5F5F5] dark:bg-[#202120] shadow-md z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        
         <a href="/" onClick={handleLogoClick} className="flex-shrink-0">
           <img
             src={LogoLightMode}
@@ -118,7 +130,6 @@ const Header = () => {
           />
         </a>
 
-        
         <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
           <div
             className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
@@ -136,7 +147,6 @@ const Header = () => {
           </div>
         </div>
 
-        
         <nav className="hidden md:flex flex-1 justify-center space-x-8">
           {navItems.map((item) => (
             <button
@@ -161,9 +171,7 @@ const Header = () => {
           ))}
         </nav>
 
-        
         <div className="hidden md:flex items-center space-x-4">
-          
           <div
             className="relative w-12 h-12 cursor-pointer flex items-center justify-center"
             onClick={toggleDarkMode}
@@ -179,7 +187,6 @@ const Header = () => {
             </div>
           </div>
 
-          
           <div className="relative">
             <button
               className="flex items-center space-x-2"
@@ -224,7 +231,6 @@ const Header = () => {
           </div>
         </div>
 
-        
         <button
           onClick={toggleMenu}
           className="md:hidden flex flex-col items-center justify-center space-y-1"
@@ -247,7 +253,6 @@ const Header = () => {
         </button>
       </div>
 
-     
       <div
         className={`
           md:hidden fixed top-0 left-0 w-full h-screen 
@@ -263,7 +268,6 @@ const Header = () => {
           ✖
         </button>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
-          
           {mobileNavItems.map((item) => (
             <button
               key={item.section}
@@ -289,7 +293,6 @@ const Header = () => {
             </button>
           ))}
 
-          
           <div className="flex flex-col items-center space-y-2">
             {Object.entries(languages).map(([key, { label, flag }]) => (
               <button
