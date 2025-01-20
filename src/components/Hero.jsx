@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import React, { useState, useEffect } from "react";
 import { scroller } from "react-scroll";
 import { useTranslation } from "react-i18next";
@@ -7,46 +6,36 @@ import leafsImage from "../img/leafs.png";
 import MountainDividerLight from "../icons/mountain-divider.svg";
 import MountainDividerDark from "../icons/mountain-divider-dark.svg";
 import Logo from "../img/logo-darkmode.png";
+import CV from "../personalia/cv.pdf"; 
 
 const Hero = () => {
-  
   const { t } = useTranslation();
-
-  
   const [text, setText] = useState("");
   const [loopIndex, setLoopIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  
   const roles = [
     t("hero.typedFront"),
     t("hero.typedMid"),
     t("hero.typedDesign"),
   ];
 
-  
   const TYPING_SPEED = 100;
   const DELETING_SPEED = 50;
   const PAUSE_BETWEEN_WORDS = 1000;
 
-  
   useEffect(() => {
     const currentIndex = loopIndex % roles.length;
     const fullText = roles[currentIndex];
 
     let timer;
 
-    
     if (!isDeleting && text === fullText) {
       timer = setTimeout(() => setIsDeleting(true), PAUSE_BETWEEN_WORDS);
-
-    
     } else if (isDeleting && text === "") {
       setIsDeleting(false);
       setLoopIndex(loopIndex + 1);
-
-    
     } else {
       timer = setTimeout(() => {
         setText((prevText) => {
@@ -62,7 +51,6 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopIndex, roles]);
 
-  
   useEffect(() => {
     const initialDark = document.documentElement.classList.contains("dark");
     setIsDarkMode(initialDark);
@@ -77,7 +65,6 @@ const Hero = () => {
     };
   }, []);
 
-  
   const handleScrollToContact = (e) => {
     e.preventDefault();
     scroller.scrollTo("contact", {
@@ -97,7 +84,6 @@ const Hero = () => {
         backgroundColor: "#F5F5F5",
       }}
     >
-      
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       <div className="relative z-10 text-center text-white px-6">
@@ -105,22 +91,19 @@ const Hero = () => {
           <img src={Logo} alt="Logo" className="h-32 mx-auto" />
         </div>
 
-        
         <h1 className="text-lg md:text-xl font-light text-white mb-4">
           {t("hero.greeting")}
         </h1>
 
-        
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
           {text}
           <span className="inline-block animate-blink">|</span>
         </h2>
 
-        
         <div className="flex justify-center space-x-4">
           <a
-            href="/path/to/your-cv.pdf"
-            download
+            href={CV} 
+            download="Amir_Crljenkovic_CV.pdf" 
             className="
               bg-[#3C493F] hover:bg-[#2B362E] 
               text-white font-bold py-3 px-6 
@@ -143,7 +126,6 @@ const Hero = () => {
         </div>
       </div>
 
-      
       <div className="absolute bottom-0 left-0 w-screen overflow-hidden">
         <img
           src={isDarkMode ? MountainDividerDark : MountainDividerLight}
