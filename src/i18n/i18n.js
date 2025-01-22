@@ -43,7 +43,10 @@ const resources = {
         functions: "Functies",
       },
       buttonProjects: {
-        label: "Bekijk Alle Projecten",
+        label: "Bekijk Alle Projecten", 
+        github: "Bekijk GitHub",       
+        website: "Bekijk Website",     
+        liveView: "Live View",         
       },
       contact: {
         title: "Contact",
@@ -60,7 +63,6 @@ const resources = {
       },
     },
   },
-
   en: {
     translation: {
       nav: {
@@ -101,7 +103,10 @@ const resources = {
         functions: "Features",
       },
       buttonProjects: {
-        label: "View All Projects",
+        label: "View All Projects", 
+        github: "View GitHub",      
+        website: "View Website",    
+        liveView: "Live View",      
       },
       contact: {
         title: "Contact",
@@ -118,7 +123,6 @@ const resources = {
       },
     },
   },
-
   de: {
     translation: {
       nav: {
@@ -159,7 +163,10 @@ const resources = {
         functions: "Funktionen",
       },
       buttonProjects: {
-        label: "Alle Projekte ansehen",
+        label: "Alle Projekte ansehen", 
+        github: "GitHub ansehen",       
+        website: "Website ansehen",    
+        liveView: "Live-Ansicht",       
       },
       contact: {
         title: "Kontakt",

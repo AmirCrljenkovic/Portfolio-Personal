@@ -31,27 +31,23 @@ const Projectspage = () => {
 
         const formattedProjects = response.items.map((item) => {
           const lang = i18n.language; 
-          const isDefaultLang = lang === "nl"; 
-
-          
-          console.log("Fetched Item Fields:", item.fields);
 
           
           const descriptionField = lang === "nl"
             ? item.fields.description
             : lang === "en"
-            ? item.fields.descriptionEn
-            : item.fields.descriptionDe;
+              ? item.fields.descriptionEn
+              : item.fields.descriptionDe;
           const ideaField = lang === "nl"
             ? item.fields.idea
             : lang === "en"
-            ? item.fields.ideaEn
-            : item.fields.ideaDe;
+              ? item.fields.ideaEn
+              : item.fields.ideaDe;
           const functionsField = lang === "nl"
             ? item.fields.functions
             : lang === "en"
-            ? item.fields.functionsEn
-            : item.fields.functionsDe;
+              ? item.fields.functionsEn
+              : item.fields.functionsDe;
 
           return {
             title: item.fields.title,
@@ -71,6 +67,7 @@ const Projectspage = () => {
 
         setProjects(formattedProjects);
 
+       
         const slugQuery = searchParams.get("slug");
         if (slugQuery) {
           const matchedProject = formattedProjects.find(
@@ -92,12 +89,14 @@ const Projectspage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-[#121212] text-gray-900 dark:text-white">
+      {/* Pagina-titel */}
       <div className="pt-40 pb-20">
         <h1 className="text-4xl md:text-5xl font-bold text-center">
           {t("projectsSection.title")}
         </h1>
       </div>
 
+      
       <div className="container mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -126,6 +125,7 @@ const Projectspage = () => {
         </div>
       </div>
 
+      
       {selectedProject && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 overflow-y-auto">
           <div className="bg-white dark:bg-[#282828] rounded-lg p-8 relative w-full max-w-4xl max-h-full overflow-auto">
@@ -179,6 +179,7 @@ const Projectspage = () => {
                 <p className="mb-6 text-lg">{selectedProject.functions}</p>
               )}
 
+              
               <div className="flex space-x-4 mt-4">
                 {selectedProject.slug && (
                   <a
@@ -187,7 +188,7 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    {t("buttonProjects.label")}
+                    {t("buttonProjects.liveView")}
                   </a>
                 )}
 
@@ -198,7 +199,7 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    {t("buttonProjects.label")}
+                    {t("buttonProjects.website")}
                   </a>
                 )}
 
@@ -209,7 +210,7 @@ const Projectspage = () => {
                     rel="noopener noreferrer"
                     className="bg-[#3C493F] dark:bg-[#B3BFB8] text-white dark:text-black px-6 py-3 rounded-lg text-lg font-bold hover:opacity-80 transition"
                   >
-                    {t("buttonProjects.label")}
+                    {t("buttonProjects.github")}
                   </a>
                 )}
               </div>
