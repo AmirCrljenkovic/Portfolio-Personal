@@ -13,53 +13,57 @@ import thumbnail9 from '../img/covers/markant1.png';
 const products = [
   {
     title: 'Petaxadvies',
-    slug: 'petax-advies', 
+    slug: 'petax-advies',
     thumbnail: thumbnail1,
   },
   {
     title: 'Technoberg Portfolio',
-    slug: 'techno-berg', 
+    slug: 'techno-berg',
     thumbnail: thumbnail2,
   },
   {
     title: 'Ajaxzaterdag',
-    slug: 'ajax-zaterdag', 
+    slug: 'ajax-zaterdag',
     thumbnail: thumbnail3,
   },
   {
     title: 'Youtube Clone',
-    slug: 'youtube-clone', 
+    slug: 'youtube-clone',
     thumbnail: thumbnail4,
   },
   {
     title: 'Zakelijk-IPTV',
-    slug: 'zakelijk-tv', 
+    slug: 'zakelijk-tv',
     thumbnail: thumbnail5,
   },
   {
     title: 'Bank App',
-    slug: 'bank-app', 
+    slug: 'bank-app',
     thumbnail: thumbnail6,
   },
   {
     title: 'Telcel',
-    slug: 'tel-cel', 
+    slug: 'tel-cel',
     thumbnail: thumbnail7,
   },
   {
     title: 'Gemeente Amsterdam',
-    slug: 'gemeente-amsterdam', 
+    slug: 'gemeente-amsterdam',
     thumbnail: thumbnail8,
   },
   {
     title: 'Markant Mantelzorg',
-    slug: 'markant-zorg', 
+    slug: 'markant-zorg',
     thumbnail: thumbnail9,
   },
 ];
 
 const Projects = () => {
-  return <HeroParallax products={products} />;
+  return (
+    <section id="projects">
+      <HeroParallax products={products} />
+    </section>
+  );
 };
 
 export default Projects;
