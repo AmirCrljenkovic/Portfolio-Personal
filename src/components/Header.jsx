@@ -24,10 +24,18 @@ const Header = () => {
     de: { label: "DE", flag: DEFlag },
   };
 
+  
   useEffect(() => {
+    
+    if (location.pathname.startsWith("/projects")) {
+      setActiveSection("projects");
+      return; 
+    }
+
+    
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
-      let currentSection = "hero"; // Default sectie
+      let currentSection = "hero"; 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
@@ -41,8 +49,9 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [location]);
 
+  
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "nl";
     i18n.changeLanguage(savedLanguage);
@@ -179,14 +188,11 @@ const Header = () => {
                 duration-500
                 ${
                   isDarkMode
-                    ? 
-                      "bg-[#B3BFB8] shadow-[inset_2px_2px_6px_rgba(0,0,0,0.5)]"
-                    : 
-                      "bg-[#ECECEC]"
+                    ? "bg-[#B3BFB8] shadow-[inset_2px_2px_6px_rgba(0,0,0,0.5)]"
+                    : "bg-[#ECECEC]"
                 }
               `}
             >
-              
               <div
                 className={`
                   w-[26px] h-[26px] rounded-full 
@@ -221,7 +227,6 @@ const Header = () => {
                 >
                   <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
                 </svg>
-                
                 <svg
                   className={`moon w-4 absolute text-[#3C493F] transition-all duration-500 ${
                     isDarkMode
@@ -400,7 +405,6 @@ const Header = () => {
                   }
                 `}
               >
-                
                 <svg
                   className={`sun w-4 absolute text-[#FFD600] transition-all duration-500 ${
                     isDarkMode
