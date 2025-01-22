@@ -3,8 +3,6 @@ import React from "react";
 import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
-
-
 import { useTranslation } from "react-i18next";
 
 export const HeroParallax = ({ products }) => {
@@ -37,18 +35,20 @@ export const HeroParallax = ({ products }) => {
     }
   };
 
+  
   if (isMobile) {
     return (
       <div
         id="projects"
         ref={ref}
         className="
-          relative flex flex-col items-center space-y-8 pb-40 pt-20 
+          relative flex flex-col items-center 
+          space-y-8
+          pt-10 pb-5   
           bg-gray-100 dark:bg-[#202120] 
           text-gray-900 dark:text-white
         "
       >
-        
         <Header />
 
         {products.map((product) => (
@@ -81,6 +81,7 @@ export const HeroParallax = ({ products }) => {
     );
   }
 
+  
   return (
     <div
       id="projects"
@@ -141,12 +142,10 @@ export const HeroParallax = ({ products }) => {
 };
 
 export const Header = () => {
-  
   const { t } = useTranslation();
 
   return (
     <div className="relative mx-auto w-full max-w-5xl px-4 py-10 md:py-40">
-      
       <h1 className="font-bold text-4xl text-center md:text-left md:text-7xl text-gray-800 dark:text-white">
         {t("projectsSection.title")}
       </h1>
