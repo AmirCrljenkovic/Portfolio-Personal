@@ -13,7 +13,7 @@ const resources = {
         contact: "Contact",
       },
       hero: {
-        greeting: "Hallo, ik ben Amir. Een gepassioneerde Software Developer.",
+        greeting: "Hallo, ik ben Amir. Een gedreven Software Developer met oog voor detail.",
         typedFront: "Front-end Developer",
         typedMid: "Onderweg naar Full-Stack Developer",
         typedDesign: "Web Designer",
@@ -73,7 +73,7 @@ const resources = {
         contact: "Contact",
       },
       hero: {
-        greeting: "Hello, I'm Amir. A passionate Software Developer.",
+        greeting: "Hello, I am Amir. A driven Software Developer with an eye for detail.",
         typedFront: "Front-end Developer",
         typedMid: "On my way to Full-Stack Developer",
         typedDesign: "Web Designer",
@@ -133,7 +133,7 @@ const resources = {
         contact: "Kontakt",
       },
       hero: {
-        greeting: "Hallo, ich bin Amir. Ein leidenschaftlicher Softwareentwickler.",
+        greeting: "Hallo, ich bin Amir. Ein engagierter Softwareentwickler mit einem Blick für Details.",
         typedFront: "Front-end Entwickler",
         typedMid: "Auf dem Weg zum Full-Stack Entwickler",
         typedDesign: "Webdesigner",
