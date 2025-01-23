@@ -24,7 +24,7 @@ export const HeroParallax = ({ products }) => {
   
   const scaleFactor = windowWidth <= 1920 ? 1 : windowWidth / 1920;
 
-  
+ 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -104,6 +104,7 @@ export const HeroParallax = ({ products }) => {
       ref={ref}
       style={{ transformOrigin: "top center" }}
       className="
+        big-desktop-container  /* <-- Toegevoegd! */
         relative flex flex-col self-auto overflow-hidden 
         h-auto 
         min-h-[270vh] pb-80 pt-60 antialiased
@@ -112,7 +113,7 @@ export const HeroParallax = ({ products }) => {
         [perspective:1000px] [transform-style:preserve-3d]
       "
     >
-      
+     
       <motion.div style={{ scale: scaleFactor }}>
         <Header />
 
@@ -120,11 +121,13 @@ export const HeroParallax = ({ products }) => {
           style={{ rotateX, rotateZ, translateY, opacity }}
         >
           
-          <motion.div className="
-            mb-20 flex flex-row-reverse 
-            space-x-4 md:space-x-20 md:space-x-reverse
-            big-desktop-row
-          ">
+          <motion.div
+            className="
+              mb-20 flex flex-row-reverse 
+              space-x-4 md:space-x-20 md:space-x-reverse
+              big-desktop-row
+            "
+          >
             {firstRow.map((product) => (
               <ProductCard
                 key={product.title}
@@ -136,12 +139,14 @@ export const HeroParallax = ({ products }) => {
           </motion.div>
 
           
-          <motion.div className="
-            mb-20
-            flex flex-row
-            space-x-4 md:space-x-20
-            big-desktop-row-second
-          ">
+          <motion.div
+            className="
+              mb-20
+              flex flex-row
+              space-x-4 md:space-x-20
+              big-desktop-row-second
+            "
+          >
             {secondRow.map((product) => (
               <ProductCard
                 key={product.title}
@@ -153,12 +158,14 @@ export const HeroParallax = ({ products }) => {
           </motion.div>
 
           
-          <motion.div className="
-            flex flex-row-reverse 
-            space-x-4 md:space-x-20 md:space-x-reverse
-            mb-60
-            big-desktop-row-bottom
-          ">
+          <motion.div
+            className="
+              flex flex-row-reverse 
+              space-x-4 md:space-x-20 md:space-x-reverse
+              mb-60
+              big-desktop-row-bottom
+            "
+          >
             {thirdRow.map((product) => (
               <ProductCard
                 key={product.title}
@@ -184,7 +191,6 @@ export const Header = () => {
     </div>
   );
 };
-
 
 export const ProductCard = ({ product, translate, onClick }) => (
   <motion.div

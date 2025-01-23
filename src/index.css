@@ -21,13 +21,12 @@
     }
     .big-desktop-row > * {
       margin-left: 0 !important;
-      margin-right: 1 !important; 
+      margin-right: 1 !important;
     }
 
     
     .big-desktop-row-second {
       gap: 5rem !important; 
-      
     }
     .big-desktop-row-second > * {
       margin-left: 1 !important;
@@ -42,6 +41,13 @@
     .big-desktop-row-bottom > * {
       margin-left: 0 !important;
       margin-right: 1 !important;
+    }
+
+    
+    .big-desktop-container {
+      min-height: auto !important;
+      padding-bottom: 62rem !important; 
+      
     }
   }
 }
