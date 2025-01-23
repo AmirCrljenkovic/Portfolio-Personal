@@ -10,3 +10,38 @@
       overscroll-none;
   }
 }
+
+
+@layer utilities {
+  @media (min-width: 1921px) {
+
+    
+    .big-desktop-row {
+      gap: 5rem !important; 
+    }
+    .big-desktop-row > * {
+      margin-left: 0 !important;
+      margin-right: 1 !important; 
+    }
+
+    
+    .big-desktop-row-second {
+      gap: 5rem !important; 
+      
+    }
+    .big-desktop-row-second > * {
+      margin-left: 1 !important;
+      margin-right: 0 !important;
+    }
+
+    
+    .big-desktop-row-bottom {
+      gap: 5rem !important;
+      margin-bottom: 20px !important; 
+    }
+    .big-desktop-row-bottom > * {
+      margin-left: 0 !important;
+      margin-right: 1 !important;
+    }
+  }
+}
