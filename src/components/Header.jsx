@@ -400,7 +400,7 @@ const Header = () => {
                   duration-500
                   ${
                     isDarkMode
-                      ? "left-[30px] bg-[#2C2C2F] shadow-[2px_2px_6px_rgba(0,0,0,0.5),-2px_-2px_6px_rgba(0,0,0,0.5)_inset]"
+                      ? "left-[30px] bg-[#353635] shadow-[2px_2px_6px_rgba(0,0,0,0.5),-2px_-2px_6px_rgba(0,0,0,0.5)_inset]"
                       : "left-[2px]"
                   }
                 `}
